@@ -251,6 +251,125 @@
       font-weight: 400;
     }
 
+    /* ===== 表格样式 ===== */
+    .model-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .model-table th {
+      text-align: left;
+      padding: 0.5rem 0.3rem;
+      border-bottom: 2px solid #e2ecf5;
+      color: #1a4a6a;
+      font-weight: 600;
+    }
+
+    .model-table td {
+      padding: 0.5rem 0.3rem;
+      border-bottom: 1px solid #ecf2f8;
+      vertical-align: middle;
+    }
+
+    .model-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .model-table a {
+      color: #1a5e8a;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1px dotted #b6cfe5;
+    }
+
+    .model-table a:hover {
+      color: #003a66;
+      border-bottom: 1px solid #1a6b9a;
+    }
+
+    /* ===== 折叠面板 ===== */
+    details {
+      margin-top: 0.8rem;
+      border-top: 1px dashed #dce8f2;
+      padding-top: 0.8rem;
+    }
+
+    summary {
+      cursor: pointer;
+      font-weight: 500;
+      color: #1a6b9a;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    summary::-webkit-details-marker {
+      display: none;
+    }
+
+    summary .arrow {
+      font-size: 0.7rem;
+      margin-left: auto;
+      color: #7a9bb5;
+      transition: transform 0.2s;
+    }
+
+    details[open] summary .arrow {
+      transform: rotate(180deg);
+    }
+
+    .coming-soon-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 0.4rem 0.8rem;
+      margin-top: 0.8rem;
+    }
+
+    .coming-item {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.25rem 0.4rem;
+      border-radius: 12px;
+      font-size: 0.85rem;
+      opacity: 0.8;
+    }
+
+    .coming-item i {
+      color: #8aabbf;
+      width: 1.4rem;
+      text-align: center;
+      font-size: 0.8rem;
+    }
+
+    .coming-item .name {
+      font-weight: 400;
+      color: #3a5f7a;
+      white-space: nowrap;
+    }
+
+    .coming-item .badge {
+      background: #eef3f8;
+      color: #5f7e99;
+      font-size: 0.6rem;
+      padding: 0.05rem 0.5rem;
+    }
+
+    .coming-item .desc {
+      color: #5f7e99;
+      font-size: 0.7rem;
+    }
+
+    .coming-note {
+      font-size: 0.75rem;
+      color: #4f7a9a;
+      margin-top: 0.6rem;
+      padding-left: 0.3rem;
+    }
+
     /* ===== 模型组 (用于 Physics 的 ModelZoo) ===== */
     .model-group {
       background: #f8fbfe;
@@ -419,13 +538,52 @@
       <div class="card-desc">
         <i class="fas fa-flask"></i> 生命科学 · 蛋白质 · 分子与药物发现
       </div>
+
+      <!-- ===== 现有的已适配模型列表 ===== -->
       <div class="sub-list">
         <div class="sub-item"><i class="fas fa-scroll"></i> <a href="https://github.com/MetaX-MACA/LifeScience/tree/main/ProteinBert" target="_blank">ProteinBert</a> <span class="badge">BERT</span> <span class="desc">蛋白质表征</span></div>
         <div class="sub-item"><i class="fas fa-stethoscope"></i> <a href="https://github.com/MetaX-MACA/LifeScience/tree/main/DeepFRI" target="_blank">DeepFRI</a> <span class="badge">GCN+LSTM</span> <span class="desc">GO 功能注释</span></div>
         <div class="sub-item"><i class="fas fa-microscope"></i> <a href="https://github.com/MetaX-MACA/LifeScience/tree/main/BioT5%2B" target="_blank">BioT5+</a> <span class="badge">多模态</span> <span class="desc">分子 · 蛋白质 · 反应</span></div>
         <div class="sub-item"><i class="fas fa-dna"></i> <a href="https://github.com/MetaX-MACA/LifeScience/tree/main/Boltz-2" target="_blank">Boltz-2</a> <span class="badge">扩散</span> <span class="desc">复合物结构 · 亲和力</span></div>
         <div class="sub-item"><i class="fas fa-bolt"></i> <a href="https://github.com/MetaX-MACA/LifeScience/tree/main/DiffDock" target="_blank">DiffDock</a> <span class="badge">扩散</span> <span class="desc">小分子-蛋白对接</span></div>
+        <div class="sub-item"><i class="fas fa-robot"></i> <a href="https://github.com/MetaX-MACA/LifeScience/tree/main/ESM3" target="_blank">ESM3</a> <span class="badge">基础模型</span> <span class="desc">蛋白质序列、结构与功能生成</span></div>
+        <div class="sub-item"><i class="fas fa-atom"></i> <a href="https://github.com/MetaX-MACA/LifeScience/tree/main/OpenFold3" target="_blank">OpenFold3</a> <span class="badge">AlphaFold3风格</span> <span class="desc">全原子生物分子结构预测</span></div>
+        <div class="sub-item"><i class="fas fa-puzzle-piece"></i> <a href="https://github.com/MetaX-MACA/LifeScience/tree/main/OpenDDE" target="_blank">OpenDDE</a> <span class="badge">扩散</span> <span class="desc">生物分子共折叠与药物设计</span></div>
+        <div class="sub-item"><i class="fas fa-project-diagram"></i> <a href="https://github.com/MetaX-MACA/LifeScience/tree/main/BoltzGen" target="_blank">BoltzGen</a> <span class="badge">扩散设计</span> <span class="desc">针对靶点的结合蛋白生成与排序</span></div>
+        <div class="sub-item"><i class="fas fa-layer-group"></i> <a href="https://github.com/MetaX-MACA/LifeScience/tree/main/Foundry" target="_blank">Foundry</a> <span class="badge">模型集合</span> <span class="desc">RF3 · RFD3 · ProteinMPNN 等</span></div>
       </div>
+      <!-- 更多模型即将适配 - 生物 -->
+      <details>
+        <summary>
+          <i class="fas fa-clock" style="font-size: 0.9rem;"></i> 更多模型即将适配...
+          <span class="arrow">▼</span>
+        </summary>
+        <div class="coming-soon-grid">
+          <!-- 结构预测 -->
+          <div class="coming-item"><i class="fas fa-cube"></i><a href="https://github.com/deepmind/alphafold" target="_blank" style="color:#1a5e8a;text-decoration:none;font-weight:500;">AlphaFold2</a><span class="desc">蛋白质结构预测</span></div>
+          <div class="coming-item"><i class="fas fa-cube"></i><a href="https://github.com/deepmind/alphafold3" target="_blank" style="color:#1a5e8a;text-decoration:none;font-weight:500;">AlphaFold3</a><span class="desc">生物分子结构预测</span></div>
+          <div class="coming-item"><i class="fas fa-cubes"></i><a href="https://github.com/facebookresearch/esm" target="_blank" style="color:#1a5e8a;text-decoration:none;font-weight:500;">ESMFold</a><span class="desc">蛋白质结构预测</span></div>
+          <div class="coming-item"><i class="fas fa-atom"></i><a href="https://github.com/RosettaCommons/RoseTTAFold" target="_blank" style="color:#1a5e8a;text-decoration:none;font-weight:500;">RoseTTAFold</a><span class="desc">生物分子复合物结构预测</span></div>
+          <div class="coming-item"><i class="fas fa-arrow-trend-up"></i><a href="https://github.com/jwohlwend/boltz" target="_blank" style="color:#1a5e8a;text-decoration:none;font-weight:500;">Boltz-1</a><span class="desc">3D生物分子相互作用预测</span></div>
+          <div class="coming-item"><i class="fas fa-dna"></i><a href="https://github.com/evo-design/evo" target="_blank" style="color:#1a5e8a;text-decoration:none;font-weight:500;">Evo</a><span class="desc">DNA/RNA/蛋白质生成与变异预测</span></div>
+          <!-- 蛋白质语言模型 -->
+          <div class="coming-item"><i class="fas fa-language"></i><a href="https://github.com/salesforce/progen" target="_blank" style="color:#1a5e8a;text-decoration:none;font-weight:500;">ProGen2</a><span class="desc">蛋白质序列生成</span></div>
+          <div class="coming-item"><i class="fas fa-language"></i><a href="https://github.com/n-hydra/protgpt3" target="_blank" style="color:#1a5e8a;text-decoration:none;font-weight:500;">ProtGPT3</a><span class="desc">蛋白质语言模型(10B)</span></div>
+          <div class="coming-item"><i class="fas fa-language"></i><a href="https://github.com/agemagician/ProtTrans" target="_blank" style="color:#1a5e8a;text-decoration:none;font-weight:500;">ProtTrans</a><span class="desc">蛋白质自监督学习</span></div>
+          <div class="coming-item"><i class="fas fa-language"></i><a href="https://github.com/lightonai/RITA" target="_blank" style="color:#1a5e8a;text-decoration:none;font-weight:500;">RITA</a><span class="desc">蛋白质自回归语言模型</span></div>
+          <!-- 抗体与RNA -->
+          <div class="coming-item"><i class="fas fa-shield-virus"></i><a href="https://github.com/oxpig/AbLang" target="_blank" style="color:#1a5e8a;text-decoration:none;font-weight:500;">AbLang</a><span class="desc">抗体序列建模</span></div>
+          <div class="coming-item"><i class="fas fa-shield-virus"></i><a href="https://github.com/graf-group/AntiBERTa" target="_blank" style="color:#1a5e8a;text-decoration:none;font-weight:500;">AntiBERTa</a><span class="desc">抗体语言模型</span></div>
+          <div class="coming-item"><i class="fas fa-rna"></i><a href="https://github.com/lbcb-sci/RiNALMo" target="_blank" style="color:#1a5e8a;text-decoration:none;font-weight:500;">RiNALMo</a><span class="desc">非编码RNA建模(650M)</span></div>
+          <div class="coming-item"><i class="fas fa-rna"></i><a href="https://github.com/chaova/RhoFold" target="_blank" style="color:#1a5e8a;text-decoration:none;font-weight:500;">RhoFold</a><span class="desc">3D RNA结构预测</span></div>
+          <!-- 药物发现与生成 -->
+          <div class="coming-item"><i class="fas fa-pills"></i><a href="https://github.com/google/txgemma" target="_blank" style="color:#1a5e8a;text-decoration:none;font-weight:500;">TxGemma</a><span class="desc">药物研发全链路大模型</span></div>
+          <div class="coming-item"><i class="fas fa-pills"></i><a href="https://github.com/VeGA-Project/VeGA" target="_blank" style="color:#1a5e8a;text-decoration:none;font-weight:500;">VeGA</a><span class="desc">靶向药物分子设计</span></div>
+          <div class="coming-item"><i class="fas fa-pills"></i><a href="https://github.com/IBM/SyntheMol" target="_blank" style="color:#1a5e8a;text-decoration:none;font-weight:500;">SyntheMol</a><span class="desc">抗生素设计</span></div>
+          <div class="coming-item"><i class="fas fa-microscope"></i><a href="https://github.com/ur-whitelab/STELLA" target="_blank" style="color:#1a5e8a;text-decoration:none;font-weight:500;">STELLA</a><span class="desc">蛋白质功能注释(LLM)</span></div>
+        </div>
+        <div class="coming-note"><i class="fas fa-info-circle"></i> 以上模型正在适配中，敬请期待。</div>
+      </details>
     </div>
 
     <!-- 2. 医疗 -->
@@ -435,35 +593,118 @@
         <h2><a href="https://github.com/MetaX-MACA/MedicalImage" target="_blank">Medical</a></h2>
       </div>
       <div class="card-desc">
-        <i class="fas fa-heartbeat"></i> 医学影像 · 分割 · 配准 · 三维理解
+        <i class="fas fa-heartbeat"></i> 医学影像 · 分割 · 配准 · 三维理解 · 病理
       </div>
       <div class="sub-list">
-        <div class="sub-item"><i class="fas fa-hospital"></i> <a href="https://github.com/MetaX-MACA/MedicalImage/tree/main/MONAI" target="_blank">MONAI</a> <span class="badge">框架</span> <span class="desc">深度学习</span></div>
+        <!-- 核心框架 -->
+        <div class="sub-item"><i class="fas fa-hospital"></i> <a href="https://github.com/MetaX-MACA/MedicalImage/tree/main/MONAI" target="_blank">MONAI</a> <span class="badge">框架</span> <span class="desc">医学影像深度学习</span></div>
+        <!-- 分割模型 -->
         <div class="sub-item"><i class="fas fa-cut"></i> <a href="https://github.com/MetaX-MACA/MedicalImage/tree/main/segmentation/MedSAM" target="_blank">MedSAM</a> <span class="badge">分割</span> <span class="desc">可提示通用2D分割</span></div>
         <div class="sub-item"><i class="fas fa-cut"></i> <a href="https://github.com/MetaX-MACA/MedicalImage/tree/main/segmentation/MedSAM2" target="_blank">MedSAM2</a> <span class="badge">分割</span> <span class="desc">可提示通用3D分割</span></div>
-        <div class="sub-item"><i class="fas fa-cube"></i> <a href="https://github.com/MetaX-MACA/MedicalImage/tree/main/segmentation/nnUNet" target="_blank">nnUNet</a> <span class="badge">分割</span> <span class="desc">自适应训练框架</span></div>
+        <div class="sub-item"><i class="fas fa-vector-square"></i> <a href="https://github.com/MetaX-MACA/MedicalImage/tree/main/segmentation/nnInteractive" target="_blank">nnInteractive</a> <span class="badge">分割</span> <span class="desc">3D交互式分割（点/涂抹/框/套索）</span></div>
+        <div class="sub-item"><i class="fas fa-cube"></i> <a href="https://github.com/MetaX-MACA/MedicalImage/tree/main/segmentation/nnUNet" target="_blank">nnUNet</a> <span class="badge">分割</span> <span class="desc">自适应U-Net框架</span></div>
+        <div class="sub-item"><i class="fas fa-cube"></i> <a href="https://github.com/MetaX-MACA/MedicalImage/tree/main/segmentation/SAM-Med3D" target="_blank">SAM-Med3D</a> <span class="badge">分割</span> <span class="desc">3D医学图像通用分割</span></div>
+        <div class="sub-item"><i class="fas fa-vector-square"></i> <a href="https://github.com/MetaX-MACA/MedicalImage/tree/main/segmentation/TotalSegmentatorV2" target="_blank">TotalSegmentatorV2</a> <span class="badge">分割</span> <span class="desc">CT全身104结构分割</span></div>
         <div class="sub-item"><i class="fas fa-eye"></i> <a href="https://github.com/MetaX-MACA/MedicalImage/tree/main/segmentation/vista3d" target="_blank">VISTA3D</a> <span class="badge">分割</span> <span class="desc">可提示CT/MR基础模型</span></div>
+        <!-- 病理模型 -->
+        <div class="sub-item"><i class="fas fa-microscope"></i> <a href="https://github.com/MetaX-MACA/MedicalImage/tree/main/pathology/prov-gigapath" target="_blank">prov-gigapath</a> <span class="badge">病理</span> <span class="desc">全切片病理基础模型</span></div>
       </div>
+
+      <!-- 更多模型即将适配 -->
+      <details>
+        <summary>
+          <i class="fas fa-clock" style="font-size: 0.9rem;"></i> 更多模型即将适配...
+          <span class="arrow">▼</span>
+        </summary>
+        <div class="coming-soon-grid">
+          <!-- SAM系列 -->
+          <div class="coming-item"><i class="fas fa-cut"></i><a href="https://github.com/Joey-S-Liu/MedSAM3" target="_blank" style="color:#1a5e8a;text-decoration:none;font-weight:500;">MedSAM3</a><span class="desc">SAM + 医学概念</span></div>
+          <div class="coming-item"><i class="fas fa-cut"></i><a href="https://github.com/openmedlab/MedLSAM" target="_blank" style="color:#1a5e8a;text-decoration:none;font-weight:500;">MedLSAM</a><span class="desc">3D定位与分割</span></div>
+          <!-- 脑部MRI基础模型 -->
+          <div class="coming-item"><i class="fas fa-brain"></i><a href="https://github.com/AIM-KannLab/BrainIAC" target="_blank" style="color:#1a5e8a;text-decoration:none;font-weight:500;">BrainIAC</a><span class="desc">48k脑MRI基础模型 (Nature Neuroscience 2026)</span></div>
+          <div class="coming-item"><i class="fas fa-brain"></i><a href="https://github.com/mazurowski-lab/mri_foundation" target="_blank" style="color:#1a5e8a;text-decoration:none;font-weight:500;">MRI-CORE</a><span class="desc">6.9M MRI切片基础模型</span></div>
+          <div class="coming-item"><i class="fas fa-brain"></i><a href="https://github.com/lab-smile/BrainSegFounder" target="_blank" style="color:#1a5e8a;text-decoration:none;font-weight:500;">BrainSegFounder</a><span class="desc">脑分割基础模型</span></div>
+          <!-- 其他专用分割 -->
+          <div class="coming-item"><i class="fas fa-cube"></i><a href="https://github.com/sanyaade-projects/SegVol" target="_blank" style="color:#1a5e8a;text-decoration:none;font-weight:500;">SegVol</a><span class="desc">200+ CT类别文本+空间提示</span></div>
+          <!-- VLM多模态模型 -->
+          <div class="coming-item"><i class="fas fa-comment-medical"></i><a href="https://github.com/ibrahimethemhamamci/CT-CHAT" target="_blank" style="color:#1a5e8a;text-decoration:none;font-weight:500;">CT-CHAT</a><span class="desc">3D胸部CT视觉语言对话</span></div>
+          <div class="coming-item"><i class="fas fa-comment-medical"></i><a href="https://github.com/Project-MONAI/multi-modal" target="_blank" style="color:#1a5e8a;text-decoration:none;font-weight:500;">RadViLLA</a><span class="desc">3D放射学视觉语言模型 (75k CT)</span></div>
+          <div class="coming-item"><i class="fas fa-comment-medical"></i><a href="https://github.com/google-health/medgemma" target="_blank" style="color:#1a5e8a;text-decoration:none;font-weight:500;">MedGemma</a><span class="desc">医疗多模态 (4B/27B)</span></div>
+          <div class="coming-item"><i class="fas fa-comment-medical"></i><a href="https://arxiv.org/abs/2307.14334" target="_blank" style="color:#1a5e8a;text-decoration:none;font-weight:500;">Med-PaLM M</a><span class="desc">多模态医学大模型</span></div>
+          <!-- 病理专用 -->
+          <div class="coming-item"><i class="fas fa-microscope"></i><a href="https://github.com/LG-AI-EXAONE/EXAONEPath" target="_blank" style="color:#1a5e8a;text-decoration:none;font-weight:500;">EXAONEPath</a><span class="desc">病理基础模型 (34k WSI)</span></div>
+          <div class="coming-item"><i class="fas fa-microscope"></i><a href="https://github.com/Zplusdragon/PLIP" target="_blank" style="color:#1a5e8a;text-decoration:none;font-weight:500;">PLIP</a><span class="desc">病理视觉语言模型</span></div>
+          <div class="coming-item"><i class="fas fa-microscope"></i><a href="https://azure.github.io/azureml-assets/wiki/models-Virchow" target="_blank" style="color:#1a5e8a;text-decoration:none;font-weight:500;">Virchow</a><span class="desc">病理图像基础模型 (632M)</span></div>
+          <!-- 其他 -->
+          <div class="coming-item"><i class="fas fa-x-ray"></i><a href="https://github.com/rajpurkarlab/CheXzero" target="_blank" style="color:#1a5e8a;text-decoration:none;font-weight:500;">CheXzero</a><span class="desc">胸部X光CLIP模型</span></div>
+          <div class="coming-item"><i class="fas fa-baby"></i><a href="https://github.com/Netherlands-Cancer-Institute/FetalCLIP" target="_blank" style="color:#1a5e8a;text-decoration:none;font-weight:500;">FetalCLIP</a><span class="desc">胎儿超声基础模型</span></div>
+        </div>
+        <div class="coming-note"><i class="fas fa-info-circle"></i> 以上模型正在适配中，敬请期待。</div>
+      </details>
     </div>
 
     <!-- 3. 材料 -->
     <div class="card">
       <div class="card-header">
         <i class="fas fa-atom"></i>
-        <h2><a href="https://github.com/MetaX-MACA/Materials" target="_blank"> Materials </a></h2>
+        <h2><a href="https://github.com/MetaX-MACA/Materials" target="_blank">Materials</a></h2>
       </div>
       <div class="card-desc">
         <i class="fas fa-cubes"></i> 材料建模 · 分子与原子尺度学习 · 计算材料
       </div>
-      <div class="model-group">
-        <div class="label"><i class="fas fa-layer-group"></i> 生态方向</div>
-        <div class="sub-list">
-          <div class="sub-item"><i class="fas fa-atom"></i> <strong>Atomistic Models</strong> <span class="desc">原子尺度表示与性质预测</span></div>
-          <div class="sub-item"><i class="fas fa-flask"></i> <strong>Materials Discovery</strong> <span class="desc">材料筛选与生成</span></div>
-          <div class="sub-item"><i class="fas fa-chart-line"></i> <strong>Simulation + AI</strong> <span class="desc">仿真数据驱动建模</span></div>
+
+      <table class="model-table">
+        <thead>
+          <tr>
+            <th>项目</th>
+            <th>类型</th>
+            <th>描述</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><a href="https://github.com/MetaX-MACA/Materials/tree/main/MatterSim" target="_blank">MatterSim</a></td>
+            <td><span class="badge">模拟</span></td>
+            <td>原子尺度材料模拟</td>
+          </tr>
+          <tr>
+            <td><a href="https://github.com/MetaX-MACA/Materials/tree/main/MatterGen" target="_blank">MatterGen</a></td>
+            <td><span class="badge">生成式AI</span></td>
+            <td>无机材料设计</td>
+          </tr>
+        </tbody>
+      </table>
+      <!-- 更多模型即将适配 - 材料 -->
+      <details>
+        <summary>
+          <i class="fas fa-clock" style="font-size: 0.9rem;"></i> 更多模型即将适配...
+          <span class="arrow">▼</span>
+        </summary>
+        <div class="coming-soon-grid">
+          <!-- 通用势能模型 (Universal MLIPs) -->
+          <div class="coming-item"><i class="fas fa-cube"></i><a href="https://github.com/materialsvirtuallab/m3gnet" target="_blank" style="color:#1a5e8a;text-decoration:none;font-weight:500;">M3GNet</a><span class="desc">跨元素周期表通用图神经网络势</span></div>
+          <div class="coming-item"><i class="fas fa-cubes"></i><a href="https://github.com/CederGroupHub/chgnet" target="_blank" style="color:#1a5e8a;text-decoration:none;font-weight:500;">CHGNet</a><span class="desc">电荷感知通用神经网络势</span></div>
+          <div class="coming-item"><i class="fas fa-microchip"></i><a href="https://github.com/ACEsuit/mace" target="_blank" style="color:#1a5e8a;text-decoration:none;font-weight:500;">MACE</a><span class="desc">原子集群展开势能模型</span></div>
+          <div class="coming-item"><i class="fas fa-chart-line"></i><a href="https://github.com/ACEsuit/mace-mp" target="_blank" style="color:#1a5e8a;text-decoration:none;font-weight:500;">MACE-MP</a><span class="desc">89种元素预训练基础模型</span></div>
+          <div class="coming-item"><i class="fas fa-bolt"></i><a href="https://github.com/MDIL-SNU/SevenNet" target="_blank" style="color:#1a5e8a;text-decoration:none;font-weight:500;">SevenNet</a><span class="desc">可扩展图神经网络势</span></div>
+          <div class="coming-item"><i class="fas fa-shapes"></i><a href="https://github.com/materialyzeai/matgl" target="_blank" style="color:#1a5e8a;text-decoration:none;font-weight:500;">TensorNet</a><span class="desc">O(3)等变神经网络势</span></div>
+          <div class="coming-item"><i class="fas fa-database"></i><a href="https://github.com/materialyzeai/matgl" target="_blank" style="color:#1a5e8a;text-decoration:none;font-weight:500;">MatGL</a><span class="desc">材料图学习框架 (M3GNet/CHGNet实现)</span></div>
+          <!-- 分子与晶体生成 -->
+          <div class="coming-item"><i class="fas fa-dna"></i><a href="https://github.com/google-deepmind/materials_discovery" target="_blank" style="color:#1a5e8a;text-decoration:none;font-weight:500;">Gnome</a><span class="desc">DeepMind无机晶体发现</span></div>
+          <div class="coming-item"><i class="fas fa-flask"></i><a href="https://github.com/molecularai/graph-invent" target="_blank" style="color:#1a5e8a;text-decoration:none;font-weight:500;">Graph-INVENT</a><span class="desc">图神经网络分子生成</span></div>
+          <div class="coming-item"><i class="fas fa-crystal"></i><a href="https://github.com/kaist-amsg/Composition-Conditioned-Crystal-GAN" target="_blank" style="color:#1a5e8a;text-decoration:none;font-weight:500;">CCGAN</a><span class="desc">组分条件晶体生成</span></div>
+          <div class="coming-item"><i class="fas fa-crystal"></i><a href="https://github.com/michaeldalverson/CrysTens" target="_blank" style="color:#1a5e8a;text-decoration:none;font-weight:500;">CrysTens</a><span class="desc">深度生成CIF晶体结构</span></div>
+          <div class="coming-item"><i class="fas fa-code"></i><a href="https://github.com/xiaohang007/SLICES" target="_blank" style="color:#1a5e8a;text-decoration:none;font-weight:500;">SLICES</a><span class="desc">晶体结构编码与Text2Crystal生成</span></div>
+          <!-- 属性预测模型 -->
+          <div class="coming-item"><i class="fas fa-atom"></i><a href="https://github.com/usnistgov/alignn" target="_blank" style="color:#1a5e8a;text-decoration:none;font-weight:500;">ALIGNN</a><span class="desc">二体与三体原子交互建模</span></div>
+          <div class="coming-item"><i class="fas fa-chart-pie"></i><a href="https://github.com/NU-CUCIS/ElemNet" target="_blank" style="color:#1a5e8a;text-decoration:none;font-weight:500;">ElemNet</a><span class="desc">深度神经网络材料性质预测</span></div>
+          <div class="coming-item"><i class="fas fa-brain"></i><a href="https://github.com/usnistgov/atomgpt" target="_blank" style="color:#1a5e8a;text-decoration:none;font-weight:500;">AtomGPT</a><span class="desc">原子尺度GPT大模型</span></div>
+          <div class="coming-item"><i class="fas fa-flask"></i><a href="https://github.com/Open-Catalyst-Project/ocp" target="_blank" style="color:#1a5e8a;text-decoration:none;font-weight:500;">OCP</a><span class="desc">Open Catalyst催化剂预测</span></div>
+          <!-- 其他 -->
+          <div class="coming-item"><i class="fas fa-fire"></i><a href="https://github.com/Shaswat-qm-researcher/Physics-Informed-Symbolic-Regression-for-Phonon-Related-Property-Prediction-and-Materials-Discovery" target="_blank" style="color:#1a5e8a;text-decoration:none;font-weight:500;">XAI-Symbolic-Regression</a><span class="desc">可解释AI声子性质预测与材料筛选</span></div>
         </div>
-      </div>
-      <div class="footnote"><i class="fas fa-road"></i> 持续扩展</div>
+        <div class="coming-note"><i class="fas fa-info-circle"></i> 以上模型正在适配中，敬请期待。</div>
+      </details>
     </div>
 
     <!-- 4. 气象 -->
@@ -475,15 +716,75 @@
       <div class="card-desc">
         <i class="fas fa-wind"></i> 天气与气候 · 数据驱动预报 · 地球系统建模
       </div>
-      <div class="model-group">
-        <div class="label"><i class="fas fa-layer-group"></i> 生态方向</div>
-        <div class="sub-list">
-          <div class="sub-item"><i class="fas fa-cloud"></i> <strong>Weather Models</strong> <span class="desc">天气预报模型</span></div>
-          <div class="sub-item"><i class="fas fa-earth-asia"></i> <strong>Climate Models</strong> <span class="desc">气候预测</span></div>
-          <div class="sub-item"><i class="fas fas fa-earth-americas"></i> <strong>Ocean Models</strong> <span class="desc">海洋模型</span></div>
+
+      <table class="model-table">
+        <thead>
+          <tr>
+            <th>模型名称</th>
+            <th>预报时效</th>
+            <th>模型内核</th>
+            <th>推理框架</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><a href="https://github.com/MetaX-MACA/WeatherForecast/tree/main/short-range-forecast/FourCastNet" target="_blank">FourCastNet</a></td>
+            <td>短、中期</td>
+            <td>数据驱动</td>
+            <td>PyTorch</td>
+          </tr>
+          <tr>
+            <td><a href="https://github.com/MetaX-MACA/WeatherForecast/tree/main/short-range-forecast/FourCastNetV2" target="_blank">FourCastNet V2</a></td>
+            <td>短、中期</td>
+            <td>数据驱动</td>
+            <td>PyTorch</td>
+          </tr>
+          <tr>
+            <td><a href="https://github.com/MetaX-MACA/WeatherForecast/tree/main/short-range-forecast/Aurora" target="_blank">Aurora</a></td>
+            <td>中期</td>
+            <td>数据驱动</td>
+            <td>PyTorch</td>
+          </tr>
+          <tr>
+            <td><a href="https://github.com/MetaX-MACA/WeatherForecast/tree/main/short-range-forecast/GraphCast" target="_blank">GraphCast</a></td>
+            <td>中期</td>
+            <td>数据驱动</td>
+            <td>JAX</td>
+          </tr>
+          <tr>
+            <td><a href="https://github.com/MetaX-MACA/WeatherForecast/tree/main/short-range-forecast/GenCast" target="_blank">GenCast</a></td>
+            <td>中期</td>
+            <td>数据驱动</td>
+            <td>JAX</td>
+          </tr>
+          <tr>
+            <td><a href="https://github.com/MetaX-MACA/WeatherForecast/tree/main/nowcasting/NowcastNET" target="_blank">NowcastNET</a></td>
+            <td>临近（3h）</td>
+            <td>数据驱动+物理</td>
+            <td>PyTorch</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- 更多模型即将适配 - 气象 -->
+      <details>
+        <summary>
+          <i class="fas fa-clock" style="font-size: 0.9rem;"></i> 更多模型即将适配...
+          <span class="arrow">▼</span>
+        </summary>
+        <div class="coming-soon-grid">
+          <!-- 中期预报模型 -->
+          <div class="coming-item"><i class="fas fa-cloud-sun"></i><a href="https://github.com/198808xc/Pangu-Weather" target="_blank" style="color:#1a5e8a;text-decoration:none;font-weight:500;">Pangu-Weather</a><span class="desc">华为盘古气象大模型，3D高分辨率全球天气预报</span></div>
+          <div class="coming-item"><i class="fas fa-cloud-sun"></i><a href="https://github.com/OpenEarthLab/FengWu" target="_blank" style="color:#1a5e8a;text-decoration:none;font-weight:500;">FengWu</a><span class="desc">复旦大学风乌气象模型，支持10天以上全球预报</span></div>
+          <div class="coming-item"><i class="fas fa-cloud"></i><a href="https://github.com/google-deepmind/graphcast" target="_blank" style="color:#1a5e8a;text-decoration:none;font-weight:500;">GraphCast</a><span class="desc">Google DeepMind图网络气象模型</span></div>
+          <!-- 短临预报模型 -->
+          <div class="coming-item"><i class="fas fa-cloud-rain"></i><a href="https://github.com/kyegomez/metnet3" target="_blank" style="color:#1a5e8a;text-decoration:none;font-weight:500;">MetNet-3</a><span class="desc">Google 高分辨率短临预报 (227M参数)</span></div>
+          <div class="coming-item"><i class="fas fa-cloud-rain"></i><a href="https://github.com/NVIDIA/earth2studio" target="_blank" style="color:#1a5e8a;text-decoration:none;font-weight:500;">StormCast</a><span class="desc">NVIDIA极端天气临近预报</span></div>
+          <!-- 其他专用模型 -->
+          <div class="coming-item"><i class="fas fa-water"></i><a href="https://github.com/tucnak/climax" target="_blank" style="color:#1a5e8a;text-decoration:none;font-weight:500;">Climax</a><span class="desc">气候与天气基础模型</span></div>
         </div>
-      </div>
-      <div class="footnote"><i class="fas fa-road"></i> 持续扩展</div>
+        <div class="coming-note"><i class="fas fa-info-circle"></i> 以上模型正在适配中，敬请期待。</div>
+      </details>
     </div>
 
     <!-- 5. 物理：物理世界统一入口 -->
@@ -505,17 +806,69 @@
       </div>
 
       <div class="main-grid" style="margin-bottom: 0; grid-template-columns: repeat(3, 1fr); gap: 1rem;">
-        <!-- Engineering Models -->
+
+        <!-- Models -->
         <div class="model-group" style="margin-top: 0;">
           <div class="label"><i class="fas fa-cube"></i> Models</div>
           <div class="sub-list">
-            <div class="sub-item"><i class="fas fa-water"></i> <a href="https://github.com/MetaX-MACA/Physics/tree/main/DeepCFD" target="_blank">DeepCFD</a> <span class="desc">稳态流场代理模型</span></div>
-            <div class="sub-item"><i class="fas fa-project-diagram"></i> <a href="https://github.com/MetaX-MACA/Physics/tree/main/PaddleScience-ModelZoo/CFD-GCN" target="_blank">CFD-GCN</a> <span class="desc">流场高分辨率</span></div>
-            <div class="sub-item"><i class="fas fa-car"></i> <a href="https://github.com/MetaX-MACA/Physics/tree/main/PaddleScience-ModelZoo/AeroGraphnet" target="_blank">AeroGraphNet</a> <span class="desc">汽车气动</span></div>
-            <div class="sub-item"><i class="fas fa-car"></i> <a href="https://github.com/MetaX-MACA/Physics/tree/main/PaddleScience-ModelZoo/Domino" target="_blank">DoMINO</a> <span class="desc">工业流体代理</span></div>
-            <div class="sub-item"><i class="fas fa-chart-line"></i> <a href="https://github.com/MetaX-MACA/Physics/tree/main/PaddleScience-ModelZoo/FNO" target="_blank">FNO</a> <span class="desc">Fourier Neural Operator</span></div>
-            <div class="sub-item"><i class="fas fa-chart-pie"></i> <a href="https://github.com/MetaX-MACA/Physics/tree/main/PaddleScience-ModelZoo/DeepOnet" target="_blank">DeepONet</a> <span class="desc">Operator Learning</span></div>
+            <div class="sub-item"><i class="fas fa-water"></i> <a href="https://github.com/MetaX-MACA/Physics/tree/main/Models/DeepCFD" target="_blank">DeepCFD</a> <span class="desc">稳态流场代理模型</span></div>
+            <div class="sub-item"><i class="fas fa-water"></i> <a href="https://github.com/MetaX-MACA/Physics/tree/main/Models/GeoPT" target="_blank">GeoPT</a> <span class="desc">复杂几何物理建模</span></div>
+
+            <!-- PaddleScience-ModelZoo 主项目 - 始终展开 -->
+            <div class="sub-item" style="display: block; padding: 0.4rem 0.6rem;">
+                <div style="display: flex; align-items: center; flex-wrap: wrap; gap: 0.3rem 0.6rem;">
+                    <i class="fas fa-project-diagram"></i>
+                    <a href="https://github.com/MetaX-MACA/Physics/tree/main/Models/PaddleScience-ModelZoo" target="_blank" style="color:#1a5e8a;text-decoration:none;border-bottom:1px dotted #b6cfe5;font-weight:500;">PaddleScience-ModelZoo</a>
+                    <span class="badge">PaddleScience</span>
+                </div>
+                <div style="margin-top: 0.3rem; margin-left: 2.2rem; padding: 0.4rem 0.6rem; border-left: 2px solid #dce8f2; background: #f8fbfe; border-radius: 6px; display: flex; flex-wrap: wrap; align-items: center; gap: 0.1rem 0.6rem;">
+                    <span style="font-size:0.75rem; color:#4a647f;"><i class="fas fa-cubes"></i> 包含：</span>
+                    <a href="https://github.com/MetaX-MACA/Physics/tree/main/Models/PaddleScience-ModelZoo/ANEURYSM" target="_blank" style="font-size:0.8rem; color:#1a5e8a; text-decoration:none;">ANEURYSM</a>
+                    <a href="https://github.com/MetaX-MACA/Physics/tree/main/Models/PaddleScience-ModelZoo/CFD-GCN" target="_blank" style="font-size:0.8rem; color:#1a5e8a; text-decoration:none;">CFD-GCN</a>
+                    <a href="https://github.com/MetaX-MACA/Physics/tree/main/Models/PaddleScience-ModelZoo/DrivAerNet" target="_blank" style="font-size:0.8rem; color:#1a5e8a; text-decoration:none;">DrivAerNet</a>
+                    <span style="font-size:0.7rem; color:#7a9bb5;">等</span>
+                </div>
+            </div>
+
+            <!-- PhysicsNeMo-ModelZoo 主项目 - 始终展开 -->
+            <div class="sub-item" style="display: block; padding: 0.4rem 0.6rem;">
+                <div style="display: flex; align-items: center; flex-wrap: wrap; gap: 0.3rem 0.6rem;">
+                    <i class="fas fa-microchip"></i>
+                    <a href="https://github.com/MetaX-MACA/Physics/tree/main/Models/PhysicsNeMo-ModelZoo" target="_blank" style="color:#1a5e8a;text-decoration:none;border-bottom:1px dotted #b6cfe5;font-weight:500;">PhysicsNeMo-ModelZoo</a>
+                    <span class="badge">PhysicsNeMo</span>
+                </div>
+                <div style="margin-top: 0.3rem; margin-left: 2.2rem; padding: 0.4rem 0.6rem; border-left: 2px solid #dce8f2; background: #f8fbfe; border-radius: 6px; display: flex; flex-wrap: wrap; align-items: center; gap: 0.1rem 0.6rem;">
+                    <span style="font-size:0.75rem; color:#4a647f;"><i class="fas fa-cubes"></i> 包含：</span>
+                    <a href="https://github.com/MetaX-MACA/Physics/tree/main/Models/PhysicsNeMo-ModelZoo/AeroGraphNet" target="_blank" style="font-size:0.8rem; color:#1a5e8a; text-decoration:none;">AeroGraphNet</a>
+                    <a href="https://github.com/MetaX-MACA/Physics/tree/main/Models/PhysicsNeMo-ModelZoo/DarcyFno" target="_blank" style="font-size:0.8rem; color:#1a5e8a; text-decoration:none;">DarcyFno</a>
+                    <a href="https://github.com/MetaX-MACA/Physics/tree/main/Models/PhysicsNeMo-ModelZoo/DarcyNestedFnos" target="_blank" style="font-size:0.8rem; color:#1a5e8a; text-decoration:none;">DarcyNestedFnos</a>
+                    <a href="https://github.com/MetaX-MACA/Physics/tree/main/Models/PhysicsNeMo-ModelZoo/DarcyTransolver" target="_blank" style="font-size:0.8rem; color:#1a5e8a; text-decoration:none;">DarcyTransolver</a>
+                    <a href="https://github.com/MetaX-MACA/Physics/tree/main/Models/PhysicsNeMo-ModelZoo/Datacenter" target="_blank" style="font-size:0.8rem; color:#1a5e8a; text-decoration:none;">Datacenter</a>
+                    <a href="https://github.com/MetaX-MACA/Physics/tree/main/Models/PhysicsNeMo-ModelZoo/Domino" target="_blank" style="font-size:0.8rem; color:#1a5e8a; text-decoration:none;">Domino</a>
+                    <span style="font-size:0.7rem; color:#7a9bb5;">等</span>
+                </div>
+            </div>
           </div>
+          <!-- 更多模型即将适配 - Models -->
+          <details>
+            <summary style="margin-top: 0.5rem; font-size: 0.85rem;">
+              <i class="fas fa-clock" style="font-size: 0.8rem;"></i> 更多模型即将适配...
+              <span class="arrow">▼</span>
+            </summary>
+            <div class="coming-soon-grid" style="grid-template-columns: 1fr;">
+            </summary>
+            <div class="coming-soon-grid">
+              <!-- 神经算子与进阶架构 -->
+              <div class="coming-item"><i class="fas fa-chart-line"></i><a href="https://github.com/qianyingcao/Laplace-Neural-Operator" target="_blank" style="color:#1a5e8a;text-decoration:none;font-weight:500;">Laplace Neural Operator (LNO)</a><span class="desc">频域神经算子，处理非周期信号与瞬态响应</span></div>
+              <div class="coming-item"><i class="fas fa-cubes"></i><a href="https://github.com/Emma-Grspl/PI-Deeponet-ADR" target="_blank" style="color:#1a5e8a;text-decoration:none;font-weight:500;">PI-DeepONet</a><span class="desc">物理信息DeepONet，AD方程算子学习</span></div>
+              <div class="coming-item"><i class="fas fa-layer-group"></i><a href="https://arxiv.org/abs/2401.07888" target="_blank" style="color:#1a5e8a;text-decoration:none;font-weight:500;">Multi-level FBPINN</a><span class="desc">多层级域分解PINN，可扩展至大规模多尺度问题</span></div>
+              <div class="coming-item"><i class="fas fa-brain"></i><a href="https://github.com/AI-and-Quantum-Computing/PIKAN" target="_blank" style="color:#1a5e8a;text-decoration:none;font-weight:500;">PIKAN</a><span class="desc">Kolmogorov-Arnold网络驱动PINN，B-spline/小波实现</span></div>
+              <!-- 生成式与物理AI仿真 -->
+              <div class="coming-item"><i class="fas fa-globe"></i><a href="https://github.com/Fysics-AI/Fysiverse-3D-SimReady" target="_blank" style="color:#1a5e8a;text-decoration:none;font-weight:500;">Fysiverse-3D</a><span class="desc">国产物理世界模型，单图生成3D场景，已完成沐曦GPU适配</span></div>
+              <div class="coming-item"><i class="fas fa-building"></i><a href="https://github.com/wenjie-liao/StructGAN-PHY" target="_blank" style="color:#1a5e8a;text-decoration:none;font-weight:500;">StructGAN-PHY</a><span class="desc">物理增强生成对抗网络，剪力墙结构智能设计</span></div>
+            </div>
+            <div class="coming-note"><i class="fas fa-info-circle"></i> 以上模型正在适配中，敬请期待。</div>
+          </details>
         </div>
 
         <!-- Simulation -->
@@ -528,16 +881,30 @@
             <div class="sub-item"><i class="fas fa-water"></i> <strong>CFD</strong> <span class="desc">流体数值模拟</span></div>
             <div class="sub-item"><i class="fas fa-shapes"></i> <strong>FEM</strong> <span class="desc">结构与多物理场</span></div>
           </div>
+          <!-- 更多仿真工具即将适配 -->
+          <details>
+            <summary style="margin-top: 0.5rem; font-size: 0.85rem;">
+              <i class="fas fa-clock" style="font-size: 0.8rem;"></i> 更多仿真工具即将适配...
+              <span class="arrow">▼</span>
+            </summary>
+            <div class="coming-soon-grid" style="grid-template-columns: 1fr;">
+              <div class="coming-item"><i class="fas fa-cubes"></i><a href="https://github.com/ISAAC-Sim/IsaacSim" target="_blank" style="color:#1a5e8a;text-decoration:none;font-weight:500;">Isaac Sim</a><span class="desc">NVIDIA机器人仿真平台</span></div>
+              <div class="coming-item"><i class="fas fa-fire"></i><a href="https://github.com/OpenFOAM/OpenFOAM-dev" target="_blank" style="color:#1a5e8a;text-decoration:none;font-weight:500;">OpenFOAM</a><span class="desc">开源CFD求解器</span></div>
+              <div class="coming-item"><i class="fas fa-wave-square"></i><a href="https://github.com/Nek5000/Nek5000" target="_blank" style="color:#1a5e8a;text-decoration:none;font-weight:500;">Nek5000</a><span class="desc">高保真CFD求解器 (谱元法)</span></div>
+            </div>
+            <div class="coming-note"><i class="fas fa-info-circle"></i> 以上工具正在适配中，敬请期待。</div>
+          </details>
         </div>
 
         <!-- Frameworks -->
         <div class="model-group" style="margin-top: 0;">
           <div class="label"><i class="fas fa-layer-group"></i> Frameworks</div>
           <div class="sub-list">
-            <div class="sub-item"><i class="fas fa-cog"></i> <a href="https://github.com/MetaX-MACA/AI4S-Framework/tree/main/PhysicsNeMo" target="_blank">PhysicsNeMo</a> <span class="desc">Physics AI</span></div>
-            <div class="sub-item"><i class="fas fa-cog"></i> <a href="https://github.com/MetaX-MACA/AI4S-Framework/tree/main/PaddleScience" target="_blank">PaddleScience</a> <span class="desc">Scientific ML</span></div>
-            <div class="sub-item"><i class="fas fa-cog"></i> <a href="https://github.com/MetaX-MACA/AI4S-Framework/tree/main/DeepXDE" target="_blank">DeepXDE</a> <span class="desc">PINN / PDE</span></div>
-            <div class="sub-item"><i class="fas fa-cog"></i> <a href="https://github.com/MetaX-MACA/AI4S-Framework/tree/main/NeuralOperator" target="_blank">NeuralOperator</a> <span class="desc">FNO / TFNO</span></div>
+            <div class="sub-item"><i class="fas fa-cog"></i> <a href="https://github.com/MetaX-MACA/Physics/tree/main/Frameworks/PhysicsNeMo" target="_blank">PhysicsNeMo</a> <span class="desc">Physics AI</span></div>
+            <div class="sub-item"><i class="fas fa-cog"></i> <a href="https://github.com/MetaX-MACA/Physics/tree/main/Frameworks/PaddleScience" target="_blank">PaddleScience</a> <span class="desc">Scientific ML</span></div>
+            <div class="sub-item"><i class="fas fa-cog"></i> <a href="https://github.com/MetaX-MACA/Physics/tree/main/Frameworks/DeepXDE" target="_blank">DeepXDE</a> <span class="desc">PINN / PDE</span></div>
+            <div class="sub-item"><i class="fas fa-cog"></i> <a href="https://github.com/MetaX-MACA/Physics/tree/main/Frameworks/NeuralOperator" target="_blank">NeuralOperator</a> <span class="desc">FNO / TFNO</span></div>
+            <div class="sub-item"><i class="fas fa-cog"></i> <a href="https://github.com/MetaX-MACA/Physics/tree/main/Frameworks/PINA" target="_blank">PINA</a> <span class="desc">PINNs 框架</span></div>
           </div>
         </div>
       </div>
