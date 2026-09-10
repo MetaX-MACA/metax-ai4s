@@ -7,7 +7,7 @@
   <!-- Font Awesome 图标库 -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
-    /* ===== 全局重置 & 沐曦社区配色 ===== */
+    /* ===== 全局重置 & 沐曦配色（白·黑·绿·紫） ===== */
     * {
       margin: 0;
       padding: 0;
@@ -15,10 +15,9 @@
     }
 
     body {
-      /* 沐曦社区常用的浅灰蓝背景 */
-      background: #f5f8fc;
+      background: #fafbfc;
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-      color: #1a2634; /* 深灰蓝，非纯黑 */
+      color: #1a1f2b;
       padding: 2rem 1.5rem;
       line-height: 1.5;
     }
@@ -28,19 +27,45 @@
       margin: 0 auto;
     }
 
-    /* ===== 顶部导航 (沐曦风格：白底+柔和阴影) ===== */
+    /* ===== 链接基础样式：默认黑，hover 绿，选中绿 ===== */
+    a,
+    a:link,
+    a:visited {
+      color: #1a1f2b;
+      text-decoration: none;
+      border-bottom: 1px dotted #c9d2dd;
+      transition: color .15s, border-color .15s;
+    }
+
+    a:hover {
+      color: #00a86b;
+      border-bottom-color: #00a86b;
+    }
+
+    a.active {
+      color: #00a86b;
+      border-bottom-color: #00a86b;
+    }
+
+    /* 兜底：同组内非选中项即使被浏览器标记为 :visited，也强制黑色 */
+    [data-link-group] a:not(.active):visited {
+      color: #1a1f2b;
+      border-bottom-color: #c9d2dd;
+    }
+
+    /* ===== 顶部导航 ===== */
     .top-bar {
       display: flex;
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
       gap: 1rem 2rem;
-      background: #ffffff; /* 纯白 */
+      background: #ffffff;
       padding: 0.8rem 2rem;
       border-radius: 60px;
-      box-shadow: 0 4px 12px rgba(0, 20, 40, 0.04);
+      box-shadow: 0 4px 16px rgba(107, 76, 154, 0.06);
       margin-bottom: 2.5rem;
-      border: 1px solid #eaf0f6;
+      border: 1px solid #e3e8f0;
     }
 
     .logo-area {
@@ -49,12 +74,12 @@
       gap: 0.6rem;
       font-weight: 600;
       font-size: 1.2rem;
-      color: #0b2a44; /* 沐曦深蓝 */
+      color: #1a1f2b;
     }
 
     .logo-area i {
       font-size: 1.8rem;
-      color: #1a6b9a; /* 沐曦品牌蓝 */
+      color: #6b4c9a;
     }
 
     .nav-links {
@@ -62,34 +87,45 @@
       gap: 1.8rem;
       font-size: 0.95rem;
       font-weight: 500;
-      color: #2c4a68;
+      color: #5b6576;
     }
 
     .nav-links span {
       cursor: default;
       padding: 0.2rem 0;
       border-bottom: 2px solid transparent;
+      transition: border-color .2s, color .2s;
     }
 
-    .nav-links .active {
-      color: #1a6b9a;
-      border-bottom-color: #1a6b9a;
+    .nav-links span:hover {
+      color: #00a86b;
+      border-bottom-color: #00a86b;
     }
 
-    /* ===== Hero 区域 (沐曦风格：浅蓝渐变+白底) ===== */
+    .nav-links a {
+      color: inherit;
+      text-decoration: none;
+      border-bottom: none;
+    }
+
+    .nav-links i {
+      color: #6b4c9a;
+    }
+
+    /* ===== Hero 区域 ===== */
     .hero-section {
-      background: linear-gradient(135deg, #ffffff 0%, #f0f6fe 100%);
+      background: linear-gradient(135deg, #ffffff 0%, #f5f0fa 100%);
       border-radius: 40px;
       padding: 2.8rem 3rem;
       margin-bottom: 2.8rem;
-      border: 1px solid #e2ecf5;
-      box-shadow: 0 8px 24px rgba(0, 40, 70, 0.04);
+      border: 1px solid #e3e8f0;
+      box-shadow: 0 8px 24px rgba(107, 76, 154, 0.06);
     }
 
     .hero-section h1 {
       font-size: 2.4rem;
       font-weight: 600;
-      color: #0b2a44; /* 深蓝 */
+      color: #1a1f2b;
       display: flex;
       align-items: center;
       gap: 0.8rem;
@@ -97,8 +133,12 @@
     }
 
     .hero-section h1 i {
-      color: #1a6b9a;
+      color: #6b4c9a;
       font-size: 2.6rem;
+    }
+
+    .hero-section > div[style] {
+      color: #5b6576 !important;
     }
 
     .hero-tags {
@@ -114,17 +154,29 @@
       border-radius: 40px;
       font-size: 0.85rem;
       font-weight: 500;
-      color: #1a4a6a;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.02);
-      border: 1px solid #dce8f2;
+      color: #6b4c9a;
+      box-shadow: 0 2px 6px rgba(107, 76, 154, 0.04);
+      border: 1px solid #e0d8ec;
+      transition: .2s;
+    }
+
+    .hero-tags .tag:hover {
+      background: #f0ebf8;
+      border-color: #6b4c9a;
     }
 
     .hero-tags .tag i {
       margin-right: 0.4rem;
-      color: #1e6f9f;
+      color: #6b4c9a;
     }
 
-    /* ===== 主网格：两栏卡片 ===== */
+    .hero-tags .tag a {
+      color: inherit;
+      text-decoration: none;
+      border-bottom: none;
+    }
+
+    /* ===== 主网格 ===== */
     .main-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -138,59 +190,66 @@
       }
     }
 
-    /* ===== 卡片 (沐曦风格：白底+柔和边框+悬停阴影) ===== */
+    /* ===== 卡片 ===== */
     .card {
       background: #ffffff;
       border-radius: 32px;
       padding: 1.8rem 1.8rem 1.8rem;
-      box-shadow: 0 4px 16px rgba(0, 20, 40, 0.04);
-      border: 1px solid #eaf0f6;
+      box-shadow: 0 4px 16px rgba(107, 76, 154, 0.04);
+      border: 1px solid #e3e8f0;
       transition: 0.2s ease;
       display: flex;
       flex-direction: column;
     }
 
     .card:hover {
-      box-shadow: 0 12px 28px rgba(0, 40, 70, 0.08);
-      border-color: #cbdae8;
+      box-shadow: 0 12px 28px rgba(107, 76, 154, 0.10);
+      border-color: #d8ccea;
     }
 
     .card-header {
       display: flex;
       align-items: center;
       gap: 0.6rem;
-      border-bottom: 1px solid #ecf2f8;
+      border-bottom: 1px solid #eef2f8;
       padding-bottom: 0.8rem;
       margin-bottom: 1.2rem;
     }
 
     .card-header i {
       font-size: 1.8rem;
-      color: #1a6b9a; /* 品牌蓝 */
+      color: #6b4c9a;
       width: 2.4rem;
     }
 
     .card-header h2 {
       font-size: 1.4rem;
       font-weight: 600;
-      color: #0b2a44;
+      color: #1a1f2b;
     }
 
     .card-header h2 a {
       color: inherit;
       text-decoration: none;
       border-bottom: 2px solid transparent;
+      transition: border-color .2s, color .2s;
     }
 
     .card-header h2 a:hover {
-      border-bottom-color: #1a6b9a;
+      color: #00a86b;
+      border-bottom-color: #00a86b;
     }
 
     .card-desc {
-      color: #2f4a66;
+      color: #5b6576;
       font-size: 0.95rem;
       margin-bottom: 1.2rem;
       padding-left: 0.2rem;
+    }
+
+    .card-desc i {
+      color: #6b4c9a;
+      margin-right: 0.3rem;
     }
 
     /* ===== 子项目列表 ===== */
@@ -206,38 +265,44 @@
       gap: 0.6rem;
       padding: 0.4rem 0.6rem;
       border-radius: 16px;
-      transition: background 0.1s;
+      transition: background 0.15s;
       font-size: 0.95rem;
       flex-wrap: wrap;
     }
 
     .sub-item:hover {
-      background: #f5faff; /* 极浅蓝 */
+      background: #e8f8f0;
     }
 
     .sub-item i {
       width: 1.6rem;
       font-size: 0.9rem;
-      color: #3a7ca5;
+      color: #6b4c9a;
       text-align: center;
       flex-shrink: 0;
     }
 
     .sub-item a {
-      color: #1a5e8a; /* 链接蓝 */
+      color: #1a1f2b;
       text-decoration: none;
       font-weight: 500;
-      border-bottom: 1px dotted #b6cfe5;
+      border-bottom: 1px dotted #c9d2dd;
+      transition: color .15s, border-color .15s;
     }
 
     .sub-item a:hover {
-      color: #003a66;
-      border-bottom: 1px solid #1a6b9a;
+      color: #00a86b;
+      border-bottom-color: #00a86b;
+    }
+
+    .sub-item a.active {
+      color: #00a86b;
+      border-bottom-color: #00a86b;
     }
 
     .sub-item .badge {
-      background: #e5eef7;
-      color: #1e4a6b;
+      background: #f0ebf8;
+      color: #6b4c9a;
       font-size: 0.7rem;
       font-weight: 500;
       padding: 0.1rem 0.7rem;
@@ -246,7 +311,7 @@
     }
 
     .sub-item .desc {
-      color: #4a647f;
+      color: #5b6576;
       font-size: 0.85rem;
       font-weight: 400;
     }
@@ -262,15 +327,16 @@
     .model-table th {
       text-align: left;
       padding: 0.5rem 0.3rem;
-      border-bottom: 2px solid #e2ecf5;
-      color: #1a4a6a;
+      border-bottom: 2px solid #e3e8f0;
+      color: #1a1f2b;
       font-weight: 600;
     }
 
     .model-table td {
       padding: 0.5rem 0.3rem;
-      border-bottom: 1px solid #ecf2f8;
+      border-bottom: 1px solid #eef2f8;
       vertical-align: middle;
+      color: #5b6576;
     }
 
     .model-table tr:last-child td {
@@ -278,32 +344,52 @@
     }
 
     .model-table a {
-      color: #1a5e8a;
+      color: #1a1f2b;
       text-decoration: none;
       font-weight: 500;
-      border-bottom: 1px dotted #b6cfe5;
+      border-bottom: 1px dotted #c9d2dd;
+      transition: color .15s, border-color .15s;
     }
 
     .model-table a:hover {
-      color: #003a66;
-      border-bottom: 1px solid #1a6b9a;
+      color: #00a86b;
+      border-bottom-color: #00a86b;
+    }
+
+    .model-table a.active {
+      color: #00a86b;
+      border-bottom-color: #00a86b;
+    }
+
+    .model-table .badge {
+      background: #f0ebf8;
+      color: #6b4c9a;
+      font-size: 0.7rem;
+      font-weight: 500;
+      padding: 0.1rem 0.7rem;
+      border-radius: 30px;
+      white-space: nowrap;
     }
 
     /* ===== 折叠面板 ===== */
     details {
       margin-top: 0.8rem;
-      border-top: 1px dashed #dce8f2;
+      border-top: 1px dashed #e0d8ec;
       padding-top: 0.8rem;
     }
 
     summary {
       cursor: pointer;
       font-weight: 500;
-      color: #1a6b9a;
+      color: #00a86b;
       list-style: none;
       display: flex;
       align-items: center;
       gap: 0.5rem;
+    }
+
+    summary i {
+      color: #6b4c9a;
     }
 
     summary::-webkit-details-marker {
@@ -313,7 +399,7 @@
     summary .arrow {
       font-size: 0.7rem;
       margin-left: auto;
-      color: #7a9bb5;
+      color: #9bb0c9;
       transition: transform 0.2s;
     }
 
@@ -335,11 +421,11 @@
       padding: 0.25rem 0.4rem;
       border-radius: 12px;
       font-size: 0.85rem;
-      opacity: 0.8;
+      opacity: 0.9;
     }
 
     .coming-item i {
-      color: #8aabbf;
+      color: #6b4c9a;
       width: 1.4rem;
       text-align: center;
       font-size: 0.8rem;
@@ -347,45 +433,56 @@
 
     .coming-item .name {
       font-weight: 400;
-      color: #3a5f7a;
+      color: #1a1f2b;
       white-space: nowrap;
     }
 
     .coming-item .badge {
-      background: #eef3f8;
-      color: #5f7e99;
+      background: #f0ebf8;
+      color: #6b4c9a;
       font-size: 0.6rem;
       padding: 0.05rem 0.5rem;
+      border-radius: 30px;
     }
 
     .coming-item .desc {
-      color: #5f7e99;
+      color: #5b6576;
       font-size: 0.7rem;
     }
 
     .coming-note {
       font-size: 0.75rem;
-      color: #4f7a9a;
+      color: #5b6576;
       margin-top: 0.6rem;
       padding-left: 0.3rem;
     }
 
-    /* ===== 模型组 (用于 Physics 的 ModelZoo) ===== */
+    .coming-note i {
+      color: #6b4c9a;
+      margin-right: 0.3rem;
+    }
+
+    /* ===== 模型组 ===== */
     .model-group {
-      background: #f8fbfe;
+      background: #f8fbf9;
       border-radius: 24px;
       padding: 1rem 1.2rem;
       margin-top: 0.8rem;
-      border: 1px solid #e2ecf5;
+      border: 1px solid #e3e8f0;
     }
 
     .model-group .label {
       font-size: 0.7rem;
       text-transform: uppercase;
       letter-spacing: 0.3px;
-      color: #4f6f8f;
+      color: #5b6576;
       font-weight: 600;
       margin-bottom: 0.5rem;
+    }
+
+    .model-group .label i {
+      color: #6b4c9a;
+      margin-right: 0.3rem;
     }
 
     .model-group .sub-item {
@@ -399,15 +496,15 @@
 
     .footnote {
       margin-top: 0.8rem;
-      background: #edf4fa;
+      background: #e8f8f0;
       padding: 0.25rem 1rem;
       border-radius: 40px;
       display: inline-block;
       font-size: 0.8rem;
-      color: #1f4a6b;
+      color: #007a4d;
     }
 
-    /* ===== 底部信息区 (三栏) ===== */
+    /* ===== 底部信息区 ===== */
     .info-grid {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
@@ -425,17 +522,22 @@
       background: #ffffff;
       border-radius: 28px;
       padding: 1.6rem 1.8rem;
-      border: 1px solid #eaf0f6;
+      border: 1px solid #e3e8f0;
+      box-shadow: 0 4px 16px rgba(107, 76, 154, 0.04);
     }
 
     .info-card h3 {
       font-size: 1.1rem;
       font-weight: 600;
-      color: #0b2a44;
+      color: #1a1f2b;
       margin-bottom: 0.8rem;
       display: flex;
       align-items: center;
       gap: 0.6rem;
+    }
+
+    .info-card h3 i {
+      color: #6b4c9a;
     }
 
     .info-card ul {
@@ -445,23 +547,49 @@
 
     .info-card li {
       padding: 0.4rem 0;
-      border-bottom: 1px solid #f0f5fa;
+      border-bottom: 1px solid #eef2f8;
       display: flex;
       gap: 0.6rem;
       align-items: baseline;
       font-size: 0.95rem;
+      color: #5b6576;
+    }
+
+    .info-card li:last-child {
+      border-bottom: none;
     }
 
     .info-card li i {
       width: 1.4rem;
-      color: #1a6b9a;
+      color: #6b4c9a;
+    }
+
+    .info-card li strong {
+      color: #1a1f2b;
+    }
+
+    .info-card li a {
+      color: #1a1f2b;
+      text-decoration: none;
+      border-bottom: 1px dotted #c9d2dd;
+      transition: color .15s, border-color .15s;
+    }
+
+    .info-card li a:hover {
+      color: #00a86b;
+      border-bottom-color: #00a86b;
+    }
+
+    .info-card li a.active {
+      color: #00a86b;
+      border-bottom-color: #00a86b;
     }
 
     /* ===== 底部 ===== */
     .footer {
       text-align: center;
-      color: #3e5f7a;
-      border-top: 1px solid #d7e2ed;
+      color: #5b6576;
+      border-top: 1px solid #e3e8f0;
       padding-top: 2rem;
       margin-top: 2.5rem;
       font-size: 0.95rem;
@@ -472,12 +600,25 @@
     }
 
     .footer a {
-      color: #1a5e8a;
+      color: #1a1f2b;
       text-decoration: none;
+      border-bottom: 1px dotted #c9d2dd;
+      transition: color .15s, border-color .15s;
     }
 
     .footer a:hover {
-      text-decoration: underline;
+      color: #00a86b;
+      border-bottom-color: #00a86b;
+    }
+
+    .footer a.active {
+      color: #00a86b;
+      border-bottom-color: #00a86b;
+    }
+
+    .footer i {
+      color: #6b4c9a;
+      margin-right: 0.3rem;
     }
 
     /* ===== 小屏优化 ===== */
@@ -498,7 +639,7 @@
       <i class="fas fa-microchip"></i>
       <span>沐曦开发者 · AI4S</span>
     </div>
-    <div class="nav-links">
+    <div class="nav-links" data-link-group>
       <span><i class="fas fa-dna"></i> <a href="https://github.com/MetaX-MACA/LifeScience" target="_blank">生物</a></span>
       <span><i class="fas fa-x-ray"></i> <a href="https://github.com/MetaX-MACA/MedicalImage" target="_blank">医疗</a></span>
       <span><i class="fas fa-atom"></i> <a href="https://github.com/MetaX-MACA/Materials" target="_blank">材料</a></span>
@@ -514,10 +655,10 @@
       <i class="fas fa-atom"></i> 沐曦GPU · AI4S · 科学智能生态
       <!-- <span style="font-size: 1rem; background: #1a6b9a; color: white; padding: 0.1rem 1.2rem; border-radius: 40px; margin-left: 0.5rem;">沐曦GPU</span> -->
     </h1>
-    <div style="font-size: 1.05rem; color: #1f3f5a; margin-top: 0.5rem; max-width: 950px;">
+    <div style="font-size: 1.05rem; color: #5b6576; margin-top: 0.5rem; max-width: 950px;">
       面向生物、医疗、材料、气象与物理等领域的 GPU 加速模型、仿真与开发生态。
     </div>
-    <div class="hero-tags">
+    <div class="hero-tags" data-link-group>
       <span class="tag"><i class="fas fa-dna"></i><a href="https://github.com/MetaX-MACA/LifeScience" target="_blank">生物</a></span>
       <span class="tag"><i class="fas fa-x-ray"></i> <a href="https://github.com/MetaX-MACA/MedicalImage" target="_blank">医疗</a></span>
       <span class="tag"><i class="fas fa-atom"></i> <a href="https://github.com/MetaX-MACA/Materials" target="_blank">材料</a></span>
@@ -540,7 +681,7 @@
       </div>
 
       <!-- ===== 现有的已适配模型列表 ===== -->
-      <div class="sub-list">
+      <div class="sub-list" data-link-group>
         <div class="sub-item"> <a href="https://github.com/MetaX-MACA/LifeScience/tree/main/BioT5%2B" target="_blank">BioT5+</a> <span class="badge">多模态</span> <span class="desc">分子 · 蛋白质 · 反应</span></div>
         <div class="sub-item"> <a href="https://github.com/MetaX-MACA/LifeScience/tree/main/BoltzGen" target="_blank">BoltzGen</a> <span class="badge">扩散设计</span> <span class="desc">针对靶点的结合蛋白生成与排序</span></div>
         <div class="sub-item"> <a href="https://github.com/MetaX-MACA/LifeScience/tree/main/Boltz-2" target="_blank">Boltz-2</a> <span class="badge">扩散</span> <span class="desc">复合物结构 · 亲和力</span></div>
@@ -590,7 +731,7 @@
       <div class="card-desc">
         <i class="fas fa-heartbeat"></i> 医学影像 · 分割 · 配准 · 三维理解 · 病理
       </div>
-      <div class="sub-list">
+      <div class="sub-list" data-link-group>
         <!-- 核心框架 -->
         <div class="sub-item"><a href="https://github.com/MetaX-MACA/MedicalImage/tree/main/MONAI" target="_blank">MONAI</a> <span class="badge">框架</span> <span class="desc">医学影像深度学习</span></div>
         <!-- 分割模型 -->
@@ -616,7 +757,7 @@
         <i class="fas fa-cubes"></i> 材料建模 · 分子与原子尺度学习 · 计算材料
       </div>
 
-      <table class="model-table">
+      <table class="model-table" data-link-group>
         <thead>
           <tr>
             <th>项目</th>
@@ -672,7 +813,7 @@
         <i class="fas fa-wind"></i> 天气与气候 · 数据驱动预报 · 地球系统建模
       </div>
 
-      <table class="model-table">
+      <table class="model-table" data-link-group>
         <thead>
           <tr>
             <th>模型名称</th>
@@ -761,40 +902,40 @@
         <!-- Models -->
         <div class="model-group" style="margin-top: 0;">
           <div class="label" style="font-size: 1.2rem;"><i class="fas fa-cube"></i> Models</div>
-          <div class="sub-list">
+          <div class="sub-list" data-link-group>
             <div class="sub-item"><a href="https://github.com/MetaX-MACA/Physics/tree/main/Models/DeepCFD" target="_blank">DeepCFD</a> <span class="desc">稳态流场代理模型</span></div>
             <div class="sub-item"><a href="https://github.com/MetaX-MACA/Physics/tree/main/Models/GeoPT" target="_blank">GeoPT</a> <span class="desc">复杂几何物理建模</span></div>
 
             <!-- PaddleScience-ModelZoo 主项目 - 始终展开 -->
             <div class="sub-item" style="display: block; padding: 0.4rem 0.6rem;">
                 <div style="display: flex; align-items: center; flex-wrap: wrap; gap: 0.3rem 0.6rem;">
-                    <a href="https://github.com/MetaX-MACA/Physics/tree/main/Models/PaddleScience-ModelZoo" target="_blank" style="color:#1a5e8a;text-decoration:none;border-bottom:1px dotted #b6cfe5;font-weight:500;">PaddleScience-ModelZoo</a>
+                    <a href="https://github.com/MetaX-MACA/Physics/tree/main/Models/PaddleScience-ModelZoo" target="_blank" style="color:#1a1f2b;text-decoration:none;border-bottom:1px dotted #c9d2dd;font-weight:500;">PaddleScience-ModelZoo</a>
                     <span class="badge">PaddleScience</span>
                 </div>
-                <div style="margin-top: 0.3rem; margin-left: 2.2rem; padding: 0.4rem 0.6rem; border-left: 2px solid #dce8f2; background: #f8fbfe; border-radius: 6px; display: flex; flex-wrap: wrap; align-items: center; gap: 0.1rem 0.6rem;">
-                    <span style="font-size:0.75rem; color:#4a647f;"> 包含：</span>
-                    <a href="https://github.com/MetaX-MACA/Physics/tree/main/Models/PaddleScience-ModelZoo/ANEURYSM" target="_blank" style="font-size:0.8rem; color:#1a5e8a; text-decoration:none;">ANEURYSM</a>
-                    <a href="https://github.com/MetaX-MACA/Physics/tree/main/Models/PaddleScience-ModelZoo/CFD-GCN" target="_blank" style="font-size:0.8rem; color:#1a5e8a; text-decoration:none;">CFD-GCN</a>
-                    <a href="https://github.com/MetaX-MACA/Physics/tree/main/Models/PaddleScience-ModelZoo/DrivAerNet" target="_blank" style="font-size:0.8rem; color:#1a5e8a; text-decoration:none;">DrivAerNet</a>
-                    <span style="font-size:0.7rem; color:#7a9bb5;">等</span>
+                <div style="margin-top: 0.3rem; margin-left: 2.2rem; padding: 0.4rem 0.6rem; border-left: 2px solid #dce8f2; background: #f8fbf9; border-radius: 6px; display: flex; flex-wrap: wrap; align-items: center; gap: 0.1rem 0.6rem;">
+                    <span style="font-size:0.75rem; color:#5b6576;"> 包含：</span>
+                    <a href="https://github.com/MetaX-MACA/Physics/tree/main/Models/PaddleScience-ModelZoo/ANEURYSM" target="_blank" style="font-size:0.8rem; color:#1a1f2b; text-decoration:none;">ANEURYSM</a>
+                    <a href="https://github.com/MetaX-MACA/Physics/tree/main/Models/PaddleScience-ModelZoo/CFD-GCN" target="_blank" style="font-size:0.8rem; color:#1a1f2b; text-decoration:none;">CFD-GCN</a>
+                    <a href="https://github.com/MetaX-MACA/Physics/tree/main/Models/PaddleScience-ModelZoo/DrivAerNet" target="_blank" style="font-size:0.8rem; color:#1a1f2b; text-decoration:none;">DrivAerNet</a>
+                    <span style="font-size:0.7rem; color:#9bb0c9;">等</span>
                 </div>
             </div>
 
             <!-- PhysicsNeMo-ModelZoo 主项目 - 始终展开 -->
             <div class="sub-item" style="display: block; padding: 0.4rem 0.6rem;">
                 <div style="display: flex; align-items: center; flex-wrap: wrap; gap: 0.3rem 0.6rem;">
-                    <a href="https://github.com/MetaX-MACA/Physics/tree/main/Models/PhysicsNeMo-ModelZoo" target="_blank" style="color:#1a5e8a;text-decoration:none;border-bottom:1px dotted #b6cfe5;font-weight:500;">PhysicsNeMo-ModelZoo</a>
+                    <a href="https://github.com/MetaX-MACA/Physics/tree/main/Models/PhysicsNeMo-ModelZoo" target="_blank" style="color:#1a1f2b;text-decoration:none;border-bottom:1px dotted #c9d2dd;font-weight:500;">PhysicsNeMo-ModelZoo</a>
                     <span class="badge">PhysicsNeMo</span>
                 </div>
-                <div style="margin-top: 0.3rem; margin-left: 2.2rem; padding: 0.4rem 0.6rem; border-left: 2px solid #dce8f2; background: #f8fbfe; border-radius: 6px; display: flex; flex-wrap: wrap; align-items: center; gap: 0.1rem 0.6rem;">
-                    <span style="font-size:0.75rem; color:#4a647f;"> 包含：</span>
-                    <a href="https://github.com/MetaX-MACA/Physics/tree/main/Models/PhysicsNeMo-ModelZoo/AeroGraphNet" target="_blank" style="font-size:0.8rem; color:#1a5e8a; text-decoration:none;">AeroGraphNet</a>
-                    <a href="https://github.com/MetaX-MACA/Physics/tree/main/Models/PhysicsNeMo-ModelZoo/DarcyFno" target="_blank" style="font-size:0.8rem; color:#1a5e8a; text-decoration:none;">DarcyFno</a>
-                    <a href="https://github.com/MetaX-MACA/Physics/tree/main/Models/PhysicsNeMo-ModelZoo/DarcyNestedFnos" target="_blank" style="font-size:0.8rem; color:#1a5e8a; text-decoration:none;">DarcyNestedFnos</a>
-                    <a href="https://github.com/MetaX-MACA/Physics/tree/main/Models/PhysicsNeMo-ModelZoo/DarcyTransolver" target="_blank" style="font-size:0.8rem; color:#1a5e8a; text-decoration:none;">DarcyTransolver</a>
-                    <a href="https://github.com/MetaX-MACA/Physics/tree/main/Models/PhysicsNeMo-ModelZoo/Datacenter" target="_blank" style="font-size:0.8rem; color:#1a5e8a; text-decoration:none;">Datacenter</a>
-                    <a href="https://github.com/MetaX-MACA/Physics/tree/main/Models/PhysicsNeMo-ModelZoo/Domino" target="_blank" style="font-size:0.8rem; color:#1a5e8a; text-decoration:none;">Domino</a>
-                    <span style="font-size:0.7rem; color:#7a9bb5;">等</span>
+                <div style="margin-top: 0.3rem; margin-left: 2.2rem; padding: 0.4rem 0.6rem; border-left: 2px solid #dce8f2; background: #f8fbf9; border-radius: 6px; display: flex; flex-wrap: wrap; align-items: center; gap: 0.1rem 0.6rem;">
+                    <span style="font-size:0.75rem; color:#5b6576;"> 包含：</span>
+                    <a href="https://github.com/MetaX-MACA/Physics/tree/main/Models/PhysicsNeMo-ModelZoo/AeroGraphNet" target="_blank" style="font-size:0.8rem; color:#1a1f2b; text-decoration:none;">AeroGraphNet</a>
+                    <a href="https://github.com/MetaX-MACA/Physics/tree/main/Models/PhysicsNeMo-ModelZoo/DarcyFno" target="_blank" style="font-size:0.8rem; color:#1a1f2b; text-decoration:none;">DarcyFno</a>
+                    <a href="https://github.com/MetaX-MACA/Physics/tree/main/Models/PhysicsNeMo-ModelZoo/DarcyNestedFnos" target="_blank" style="font-size:0.8rem; color:#1a1f2b; text-decoration:none;">DarcyNestedFnos</a>
+                    <a href="https://github.com/MetaX-MACA/Physics/tree/main/Models/PhysicsNeMo-ModelZoo/DarcyTransolver" target="_blank" style="font-size:0.8rem; color:#1a1f2b; text-decoration:none;">DarcyTransolver</a>
+                    <a href="https://github.com/MetaX-MACA/Physics/tree/main/Models/PhysicsNeMo-ModelZoo/Datacenter" target="_blank" style="font-size:0.8rem; color:#1a1f2b; text-decoration:none;">Datacenter</a>
+                    <a href="https://github.com/MetaX-MACA/Physics/tree/main/Models/PhysicsNeMo-ModelZoo/Domino" target="_blank" style="font-size:0.8rem; color:#1a1f2b; text-decoration:none;">Domino</a>
+                    <span style="font-size:0.7rem; color:#9bb0c9;">等</span>
                 </div>
             </div>
           </div>
@@ -818,7 +959,7 @@
         <!-- Frameworks -->
         <div class="model-group" style="margin-top: 0;">
           <div class="label" style="font-size: 1.2rem;"><i class="fas fa-layer-group"></i> Frameworks</div>
-          <div class="sub-list">
+          <div class="sub-list" data-link-group>
             <div class="sub-item"><a href="https://github.com/MetaX-MACA/Physics/tree/main/Frameworks/PhysicsNeMo" target="_blank">PhysicsNeMo</a> <span class="desc">Physics AI</span></div>
             <div class="sub-item"><a href="https://github.com/MetaX-MACA/Physics/tree/main/Frameworks/PaddleScience" target="_blank">PaddleScience</a> <span class="desc">Scientific ML</span></div>
             <div class="sub-item"><a href="https://github.com/MetaX-MACA/Physics/tree/main/Frameworks/DeepXDE" target="_blank">DeepXDE</a> <span class="desc">PINN / PDE</span></div>
@@ -853,11 +994,11 @@
     </div> -->
     <div class="info-card">
       <h3><i class="fas fa-code-branch"></i> 参与贡献</h3>
-      <ul>
-        <li><i class="fab fa-github"></i> <a href="https://github.com/MetaX-MACA" target="_blank" style="color: #1a5e8a;">MetaX-MACA</a></li>
+      <ul data-link-group>
+        <li><i class="fab fa-github"></i> <a href="https://github.com/MetaX-MACA" target="_blank" style="color: #1a1f2b;">MetaX-MACA</a></li>
         <li><i class="fas fa-bug"></i> 通过 Issues 反馈问题</li>
         <li><i class="fas fa-code"></i> 提交 Pull Request</li>
-        <li><i class="fas fa-comment"></i> <a href="https://developer.metax-tech.com/forum/" target="_blank" style="color: #1a5e8a;">加入开发者论坛讨论</a></li>
+        <li><i class="fas fa-comment"></i> <a href="https://developer.metax-tech.com/forum/" target="_blank" style="color: #1a1f2b;">加入开发者论坛讨论</a></li>
       </ul>
     </div>
   </div>
@@ -868,27 +1009,53 @@
     <p style="margin-bottom: 0.5rem;">在使用各仓库中的任何资源前，请仔细阅读并遵守以下声明：</p>
     <ul style="list-style: none; padding: 0;">
       <li style="padding: 0.3rem 0; border-bottom: 1px solid #f0f0f0; display: flex; gap: 0.6rem; align-items: baseline;">
-        <i class="fas fa-balance-scale" style="width: 1.4rem; color: #111;"></i>
+        <i class="fas fa-balance-scale" style="width: 1.4rem; color: #6b4c9a;"></i>
         <span><strong>独立项目</strong>：各仓库中的每个子项目均为独立的开源项目，保留其原有的许可证和版权声明。我方仅提供<strong>聚合分发</strong>服务，不对这些项目的功能、安全性或合规性做额外担保。</span>
       </li>
       <li style="padding: 0.3rem 0; border-bottom: 1px solid #f0f0f0; display: flex; gap: 0.6rem; align-items: baseline;">
-        <i class="fas fa-handshake" style="width: 1.4rem; color: #111;"></i>
+        <i class="fas fa-handshake" style="width: 1.4rem; color: #6b4c9a;"></i>
         <span><strong>使用责任</strong>：您有责任理解并遵守每个子项目自带的许可证条款。在使用或分发任何子项目时，请确保完全符合其许可证要求。</span>
       </li>
       <li style="padding: 0.3rem 0; display: flex; gap: 0.6rem; align-items: baseline;">
-        <i class="fas fa-file-contract" style="width: 1.4rem; color: #111;"></i>
+        <i class="fas fa-file-contract" style="width: 1.4rem; color: #6b4c9a;"></i>
         <span><strong>修改与组合</strong>：如子项目内包含由我方提供的 Patch 文件或适配文件，这些特定文件的许可证将放置于对应的子文件夹中，请在使用时一并遵循。</span>
       </li>
     </ul>
   </div>
 </div>
   <!-- ===== 底部 ===== -->
-  <div class="footer">
+  <div class="footer" data-link-group>
     <span><i class="fas fa-copyright"></i> 沐曦 GPU · AI4S 生态</span>
     <span><i class="fab fa-github"></i> <a href="https://github.com/MetaX-MACA" target="_blank">GitHub 组织</a></span>
     <span><i class="fas fa-external-link-alt"></i> <a href="https://developer.metax-tech.com/" target="_blank">沐曦开发者社区</a></span>
   </div>
 
 </div>
+
+<script>
+(function () {
+  // 页面加载时清空所有 active（防止浏览器缓存导致的高亮残留）
+  document.querySelectorAll('[data-link-group] a.active').forEach(function (a) {
+    a.classList.remove('active');
+  });
+
+  // 点击时：同组单选
+  document.addEventListener('click', function (e) {
+    var link = e.target.closest('a');
+    if (!link) return;
+
+    var group = link.closest('[data-link-group]');
+    if (!group) return;
+
+    // 移除同组其它项的 active
+    group.querySelectorAll('a.active').forEach(function (a) {
+      a.classList.remove('active');
+    });
+
+    // 当前项设为 active
+    link.classList.add('active');
+  });
+})();
+</script>
 </body>
 </html>
