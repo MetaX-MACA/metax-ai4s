@@ -170,16 +170,56 @@
       color: #00a86b;
     }
 
+    /* 回到顶部按钮 —— 风格与侧边栏链接一致，下方带分割线 */
+    .side-nav-top {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.55rem 0.7rem;
+      border-radius: 12px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: #1a1f2b;
+      border-bottom: none;
+      transition: background 0.18s, color 0.18s;
+      white-space: nowrap;
+      cursor: pointer;
+      margin-bottom: 0.3rem;
+      padding-bottom: 0.7rem;
+      border-bottom: 1px solid #eef2f8;
+    }
+
+    .side-nav-top i {
+      width: 1.2rem;
+      text-align: center;
+      color: #6b4c9a;
+      font-size: 0.95rem;
+      transition: color .18s;
+    }
+
+    .side-nav-top:hover {
+      background: #e8f8f0;
+      color: #00a86b;
+    }
+
+    .side-nav-top:hover i {
+      color: #00a86b;
+    }
+
     /* 小屏优化：侧边栏变窄，字号缩小 */
     @media (max-width: 700px) {
       .side-nav-inner {
         min-width: 132px;
         padding: 1rem 0.6rem 1rem 0.9rem;
       }
-      .side-nav-link {
+      .side-nav-link,
+      .side-nav-top {
         font-size: 0.8rem;
         padding: 0.45rem 0.5rem;
         gap: 0.4rem;
+      }
+      .side-nav-top {
+        padding-bottom: 0.6rem;
       }
       .side-nav-toggle {
         height: 48px;
@@ -845,6 +885,12 @@
   </div>
   <div class="side-nav-inner">
     <div class="side-nav-title">快速导航</div>
+
+    <!-- 回到顶部按钮 -->
+    <a href="#" class="side-nav-top" id="backToTop">
+      <i class="fas fa-arrow-up"></i> 回到顶部
+    </a>
+
     <a href="#biology" class="side-nav-link" data-nav-target="biology">
       <i class="fas fa-dna"></i> 生物
     </a>
@@ -1335,6 +1381,15 @@
       link.classList.add('current');
     });
   });
+
+  // ===== 回到顶部 =====
+  var backToTop = document.getElementById('backToTop');
+  if (backToTop) {
+    backToTop.addEventListener('click', function (e) {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
 
   // ===== 滚动高亮当前主题 =====
   var sections = ['biology', 'medical', 'materials', 'weather', 'physics']
