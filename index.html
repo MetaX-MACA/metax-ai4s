@@ -17,6 +17,10 @@
       box-sizing: border-box;
     }
 
+    html {
+      scroll-behavior: smooth; /* 锚点平滑滚动 */
+    }
+
     body {
       background: #fafbfc;
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
@@ -203,6 +207,7 @@
       transition: 0.2s ease;
       display: flex;
       flex-direction: column;
+      scroll-margin-top: 1.5rem; /* 锚点跳转时留出间距 */
     }
 
     .card:hover {
@@ -701,18 +706,18 @@
 <body>
 <div class="container">
 
-  <!-- ===== 顶部导航 ===== -->
+  <!-- ===== 顶部导航（锚点指向下方卡片ID） ===== -->
   <div class="top-bar">
     <div class="logo-area">
       <i class="fas fa-microchip"></i>
       <span>沐曦开发者 · AI4S</span>
     </div>
     <div class="nav-links" data-link-group>
-      <span><i class="fas fa-dna"></i> <a href="https://github.com/MetaX-MACA/LifeScience" target="_blank">生物</a></span>
-      <span><i class="fas fa-x-ray"></i> <a href="https://github.com/MetaX-MACA/MedicalImage" target="_blank">医疗</a></span>
-      <span><i class="fas fa-atom"></i> <a href="https://github.com/MetaX-MACA/Materials" target="_blank">材料</a></span>
-      <span><i class="fas fa-cloud-sun"></i> <a href="https://github.com/MetaX-MACA/WeatherForecast" target="_blank">气象</a></span>
-      <span><i class="fas fa-cubes"></i> <a href="https://github.com/MetaX-MACA/Physics" target="_blank">物理</a></span>
+      <span><i class="fas fa-dna"></i> <a href="#biology">生物</a></span>
+      <span><i class="fas fa-x-ray"></i> <a href="#medical">医疗</a></span>
+      <span><i class="fas fa-atom"></i> <a href="#materials">材料</a></span>
+      <span><i class="fas fa-cloud-sun"></i> <a href="#weather">气象</a></span>
+      <span><i class="fas fa-cubes"></i> <a href="#physics">物理</a></span>
       <span><i class="fab fa-github"></i> <a href="https://github.com/MetaX-MACA" target="_blank">GitHub</a></span>
     </div>
   </div>
@@ -721,25 +726,25 @@
   <div class="hero-section">
     <h1>
       <i class="fas fa-atom"></i> 沐曦GPU · AI4S · 科学智能生态
-      <!-- <span style="font-size: 1rem; background: #1a6b9a; color: white; padding: 0.1rem 1.2rem; border-radius: 40px; margin-left: 0.5rem;">沐曦GPU</span> -->
     </h1>
     <div style="font-size: 1.05rem; color: #5b6576; margin-top: 0.5rem; max-width: 950px;">
       面向生物、医疗、材料、气象与物理等领域的 GPU 加速模型、仿真与开发生态。
     </div>
+    <!-- Hero 标签也改为锚点 -->
     <div class="hero-tags" data-link-group>
-      <span class="tag"><i class="fas fa-dna"></i><a href="https://github.com/MetaX-MACA/LifeScience" target="_blank">生物</a></span>
-      <span class="tag"><i class="fas fa-x-ray"></i> <a href="https://github.com/MetaX-MACA/MedicalImage" target="_blank">医疗</a></span>
-      <span class="tag"><i class="fas fa-atom"></i> <a href="https://github.com/MetaX-MACA/Materials" target="_blank">材料</a></span>
-      <span class="tag"><i class="fas fa-cloud-sun"></i> <a href="https://github.com/MetaX-MACA/WeatherForecast" target="_blank">气象</a></span>
-      <span class="tag"><i class="fas fa-cubes"></i> <a href="https://github.com/MetaX-MACA/Physics" target="_blank">物理</a></span>
+      <span class="tag"><i class="fas fa-dna"></i><a href="#biology">生物</a></span>
+      <span class="tag"><i class="fas fa-x-ray"></i> <a href="#medical">医疗</a></span>
+      <span class="tag"><i class="fas fa-atom"></i> <a href="#materials">材料</a></span>
+      <span class="tag"><i class="fas fa-cloud-sun"></i> <a href="#weather">气象</a></span>
+      <span class="tag"><i class="fas fa-cubes"></i> <a href="#physics">物理</a></span>
     </div>
   </div>
 
   <!-- ===== 五大入口 ===== -->
   <div class="main-grid">
 
-    <!-- 1. 生物 -->
-    <div class="card">
+    <!-- 1. 生物（锚点 id="biology"） -->
+    <div class="card" id="biology">
       <div class="card-header">
         <i class="fas fa-dna"></i>
         <h2><a href="https://github.com/MetaX-MACA/LifeScience" target="_blank">Biology</a></h2>
@@ -755,7 +760,6 @@
         <div class="sub-item"> <a href="https://github.com/MetaX-MACA/LifeScience/tree/main/Boltz-2" target="_blank">Boltz-2</a> <span class="badge">扩散</span> <span class="desc">复合物结构 · 亲和力</span></div>
         <div class="sub-item"> <a href="https://github.com/MetaX-MACA/LifeScience/tree/main/DeepFRI" target="_blank">DeepFRI</a> <span class="badge">GCN+LSTM</span> <span class="desc">GO 功能注释</span></div>
         <div class="sub-item"> <a href="https://github.com/MetaX-MACA/LifeScience/tree/main/DiffDock" target="_blank">DiffDock</a> <span class="badge">扩散</span> <span class="desc">小分子-蛋白对接</span></div>
-        <!-- <div class="sub-item"> <a href="https://github.com/MetaX-MACA/LifeScience/tree/main/ESM3" target="_blank">ESM3</a> <span class="badge">基础模型</span> <span class="desc">蛋白质序列、结构与功能生成</span></div> -->
         <!-- ESM3 二级菜单 -->
         <div class="sub-item has-submenu">
           <a href="https://github.com/MetaX-MACA/LifeScience/tree/main/ESM3" target="_blank">ESM3</a>
@@ -845,8 +849,8 @@
       </details>
     </div>
 
-    <!-- 2. 医疗 -->
-    <div class="card">
+    <!-- 2. 医疗（锚点 id="medical"） -->
+    <div class="card" id="medical">
       <div class="card-header">
         <i class="fas fa-x-ray"></i>
         <h2><a href="https://github.com/MetaX-MACA/MedicalImage" target="_blank">Medical</a></h2>
@@ -870,8 +874,8 @@
       </div>
     </div>
 
-    <!-- 3. 材料 -->
-    <div class="card">
+    <!-- 3. 材料（锚点 id="materials"） -->
+    <div class="card" id="materials">
       <div class="card-header">
         <i class="fas fa-atom"></i>
         <h2><a href="https://github.com/MetaX-MACA/Materials" target="_blank">Materials</a></h2>
@@ -916,8 +920,8 @@
       </details>
     </div>
 
-    <!-- 4. 气象 -->
-    <div class="card">
+    <!-- 4. 气象（锚点 id="weather"） -->
+    <div class="card" id="weather">
       <div class="card-header">
         <i class="fas fa-cloud-sun"></i>
         <h2><a href="https://github.com/MetaX-MACA/WeatherForecast" target="_blank">Weather</a></h2>
@@ -992,8 +996,8 @@
       </details>      
     </div>
 
-    <!-- 5. 物理：物理世界统一入口 -->
-    <div class="card" style="grid-column: 1 / -1;">
+    <!-- 5. 物理（锚点 id="physics"） -->
+    <div class="card" id="physics" style="grid-column: 1 / -1;">
       <div class="card-header">
         <i class="fas fa-cubes"></i>
         <h2><a href="https://github.com/MetaX-MACA/Physics" target="_blank">Physics</a></h2>
@@ -1096,15 +1100,6 @@
         <li><i class="fab fa-python"></i> <strong>语言</strong> Python 3.8+</li>
       </ul>
     </div>
-    <!-- <div class="info-card">
-      <h3><i class="fas fa-license"></i> 合规声明</h3>
-      <ul>
-        <li><i class="fas fa-balance-scale"></i> 各子项目独立开源</li>
-        <li><i class="fas fa-handshake"></i> 沐曦提供聚合分发与适配</li>
-        <li><i class="fas fa-exclamation-triangle"></i> 使用前请遵守各子项目许可</li>
-        <li><i class="fas fa-file-contract"></i> Patch 许可证见子文件夹</li>
-      </ul>
-    </div> -->
     <div class="info-card">
       <h3><i class="fas fa-code-branch"></i> 参与贡献</h3>
       <ul data-link-group>
