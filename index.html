@@ -1848,7 +1848,7 @@
   });
 })();
 
-/* ===== 滑动侧边栏逻辑 ===== */
+/* ===== 滑动侧边栏逻辑（含滚动高亮优化） ===== */
 (function () {
   var sideNav = document.getElementById('sideNav');
   var toggle = document.getElementById('sideNavToggle');
@@ -1864,7 +1864,7 @@
   });
 
   document.querySelectorAll('.side-nav-link').forEach(function (link) {
-    link.addEventListener('click', function (e) {
+    link.addEventListener('click', function () {
       sideNav.classList.remove('collapsed');
       if (toggleIcon) {
         toggleIcon.className = 'fas fa-chevron-right';
@@ -1885,16 +1885,22 @@
     });
   }
 
-  // 滚动高亮当前主题
+  // ===== 滚动高亮当前主题（以屏幕视觉焦点为切换线） =====
   var sections = ['biology', 'medical', 'materials', 'weather', 'physics']
     .map(function (id) { return document.getElementById(id); })
     .filter(Boolean);
 
   function updateCurrentOnScroll() {
     var scrollPos = window.scrollY || window.pageYOffset;
-    var offset = 140;
+
+    // 关键改动：以屏幕高度的 1/3 处作为高亮切换线
+    // 人眼自然聚焦在屏幕上 1/3 或中间位置，因此当某卡片顶部越过该线时切换高亮
+    var viewportHeight = window.innerHeight;
+    var offset = viewportHeight * 0.35; // 35% 处 ≈ 屏幕中上位置，可按需调整（0.33~0.5）
+
     var currentId = null;
 
+    // 从下往上找第一个「顶部已越过切换线」的区域
     for (var i = sections.length - 1; i >= 0; i--) {
       var sec = sections[i];
       if (sec.offsetTop - offset <= scrollPos) {
@@ -1902,6 +1908,8 @@
         break;
       }
     }
+
+    // 如果在最顶部，默认高亮第一个
     if (!currentId && sections.length > 0 && scrollPos < sections[0].offsetTop - offset) {
       currentId = sections[0].id;
     }
@@ -1925,6 +1933,11 @@
       });
       ticking = true;
     }
+  });
+
+  // 窗口尺寸变化时重新计算（因为 offset 依赖视口高度）
+  window.addEventListener('resize', function () {
+    updateCurrentOnScroll();
   });
 
   updateCurrentOnScroll();
