@@ -69,12 +69,10 @@
       transition: transform 0.3s ease;
     }
 
-    /* 折叠状态下，整个侧边栏移出屏幕，只露出把手 */
     .side-nav.collapsed {
       transform: translate(100%, -50%);
     }
 
-    /* 侧边栏把手 */
     .side-nav-toggle {
       position: absolute;
       left: -38px;
@@ -101,7 +99,6 @@
       color: #00a86b;
     }
 
-    /* 侧边栏主体 */
     .side-nav-inner {
       background: #ffffff;
       border: 1px solid #e3e8f0;
@@ -126,7 +123,6 @@
       margin-bottom: 0.3rem;
     }
 
-    /* 侧边栏链接项 */
     .side-nav-link {
       display: flex;
       align-items: center;
@@ -159,7 +155,6 @@
       color: #00a86b;
     }
 
-    /* 当前被滚动到的主题高亮 */
     .side-nav-link.current {
       background: #e8f8f0;
       color: #00a86b;
@@ -170,7 +165,7 @@
       color: #00a86b;
     }
 
-    /* 回到顶部按钮 —— 风格与侧边栏链接一致，下方带分割线 */
+    /* 回到顶部按钮 */
     .side-nav-top {
       display: flex;
       align-items: center;
@@ -206,7 +201,6 @@
       color: #00a86b;
     }
 
-    /* 小屏优化：侧边栏变窄，字号缩小 */
     @media (max-width: 700px) {
       .side-nav-inner {
         min-width: 132px;
@@ -363,7 +357,7 @@
       display: flex;
       flex-direction: column;
       scroll-margin-top: 2rem;
-      margin-bottom: 2.5rem;  /* 卡片之间的间距，实现“空行”效果 */
+      margin-bottom: 2.5rem;
     }
 
     .card:last-of-type {
@@ -491,7 +485,7 @@
     }
 
     .submenu {
-      display: block;              /* 默认显示 */ /* 改成none可以默认隐藏，hover时显示 */
+      display: block;
       list-style: none;
       width: 100%;
       margin-top: 0.4rem;
@@ -749,6 +743,263 @@
       }
     }
 
+    /* ============================================================
+       医疗卡片 —— 改为与其它卡片一致的 section 结构
+       ============================================================ */
+    .medical-intro {
+      color: #5b6576;
+      font-size: 0.95rem;
+      margin-bottom: 1.2rem;
+      padding-left: 0.2rem;
+    }
+
+    .medical-intro i {
+      color: #6b4c9a;
+      margin-right: 0.3rem;
+    }
+
+    /* 筛选按钮栏 */
+    .filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem 0.6rem;
+      margin-bottom: 1.4rem;
+    }
+
+    .filter {
+      background: #ffffff;
+      border: 1px solid #e0d8ec;
+      color: #6b4c9a;
+      padding: 0.35rem 1rem;
+      border-radius: 30px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.18s;
+      font-family: inherit;
+    }
+
+    .filter:hover {
+      background: #f0ebf8;
+      border-color: #6b4c9a;
+    }
+
+    .filter.active {
+      background: #6b4c9a;
+      border-color: #6b4c9a;
+      color: #ffffff;
+    }
+
+    /* 场景总览面板 */
+    .summary-panel {
+      background: #f8fbf9;
+      border: 1px solid #e3e8f0;
+      border-radius: 24px;
+      padding: 1.2rem 1.4rem;
+      margin-bottom: 1.4rem;
+    }
+
+    .summary-panel-head h3 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: #1a1f2b;
+      margin-bottom: 0.35rem;
+    }
+
+    .summary-panel-head p {
+      font-size: 0.85rem;
+      color: #5b6576;
+      margin-bottom: 0.9rem;
+    }
+
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 0.8rem;
+    }
+
+    .summary-item {
+      display: block;
+      background: #ffffff;
+      border: 1px solid #e3e8f0;
+      border-radius: 18px;
+      padding: 0.9rem 1rem;
+      transition: 0.2s;
+      border-bottom: 1px solid #e3e8f0;
+    }
+
+    .summary-item:hover {
+      box-shadow: 0 8px 20px rgba(107, 76, 154, 0.08);
+      border-color: #d8ccea;
+      color: #1a1f2b;
+    }
+
+    .summary-item-top {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .summary-index {
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: #6b4c9a;
+      background: #f0ebf8;
+      padding: 0.1rem 0.45rem;
+      border-radius: 8px;
+    }
+
+    .summary-item-top strong {
+      font-size: 0.92rem;
+      color: #1a1f2b;
+      font-weight: 600;
+    }
+
+    .summary-count {
+      margin-left: auto;
+      font-size: 0.7rem;
+      color: #5b6576;
+      background: #eef2f8;
+      padding: 0.1rem 0.55rem;
+      border-radius: 20px;
+      white-space: nowrap;
+    }
+
+    .summary-item > p {
+      font-size: 0.8rem;
+      color: #5b6576;
+      margin-bottom: 0.45rem;
+      line-height: 1.45;
+    }
+
+    .summary-models {
+      font-size: 0.75rem;
+      color: #5b6576;
+      line-height: 1.5;
+    }
+
+    .summary-models b {
+      color: #6b4c9a;
+      font-weight: 600;
+      margin-right: 0.25rem;
+    }
+
+    /* 模型卡片网格 */
+    .cap-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 0.9rem;
+    }
+
+    .model-card {
+      background: #f8fbf9;
+      border: 1px solid #e3e8f0;
+      border-radius: 20px;
+      padding: 1rem 1.1rem;
+      display: flex;
+      flex-direction: column;
+      transition: 0.2s;
+    }
+
+    .model-card:hover {
+      box-shadow: 0 10px 24px rgba(107, 76, 154, 0.09);
+      border-color: #d8ccea;
+      background: #ffffff;
+    }
+
+    .model-card-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .model-category {
+      font-size: 0.68rem;
+      font-weight: 600;
+      color: #6b4c9a;
+      background: #f0ebf8;
+      padding: 0.12rem 0.6rem;
+      border-radius: 30px;
+      white-space: nowrap;
+    }
+
+    .status {
+      font-size: 0.66rem;
+      font-weight: 500;
+      color: #007a4d;
+      background: #e8f8f0;
+      padding: 0.12rem 0.6rem;
+      border-radius: 30px;
+      white-space: nowrap;
+    }
+
+    .status.dev {
+      color: #8a6d00;
+      background: #fdf6e3;
+    }
+
+    .model-card h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #1a1f2b;
+      margin-bottom: 0.4rem;
+    }
+
+    .model-card > p {
+      font-size: 0.82rem;
+      color: #5b6576;
+      line-height: 1.5;
+      margin-bottom: 0.7rem;
+      flex: 1;
+    }
+
+    .model-card .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.3rem 0.4rem;
+      margin-bottom: 0.7rem;
+    }
+
+    .model-card .tags .tag {
+      font-size: 0.66rem;
+      color: #5b6576;
+      background: #ffffff;
+      border: 1px solid #e3e8f0;
+      padding: 0.1rem 0.55rem;
+      border-radius: 20px;
+      white-space: nowrap;
+    }
+
+    .card-link {
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: #6b4c9a;
+      border-bottom: 1px dotted #c9d2dd;
+      align-self: flex-start;
+      transition: color .15s, border-color .15s;
+    }
+
+    .card-link:hover {
+      color: #00a86b;
+      border-bottom-color: #00a86b;
+    }
+
+    /* 隐藏非当前分类的卡片（当筛选激活时） */
+    .cap-grid.filtered .model-card {
+      display: none;
+    }
+
+    .cap-grid.filtered .model-card.show {
+      display: flex;
+    }
+
+    .summary-panel.hidden {
+      display: none;
+    }
+
     /* ===== 底部信息区 ===== */
     .info-grid {
       display: grid;
@@ -873,6 +1124,8 @@
       .nav-links { justify-content: center; flex-wrap: wrap; gap: 1rem; }
       .card-header { flex-wrap: wrap; }
       .card { margin-bottom: 2rem; }
+      .summary-grid { grid-template-columns: 1fr; }
+      .cap-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -886,7 +1139,6 @@
   <div class="side-nav-inner">
     <div class="side-nav-title">快速导航</div>
 
-    <!-- 回到顶部按钮 -->
     <a href="#" class="side-nav-top" id="backToTop">
       <i class="fas fa-arrow-up"></i> 回到顶部
     </a>
@@ -895,7 +1147,7 @@
       <i class="fas fa-dna"></i> 生物
     </a>
     <a href="#medical" class="side-nav-link" data-nav-target="medical">
-      <i class="fas fa-x-ray"></i> 医疗
+      <i class="fas fa-hospital"></i> 医疗
     </a>
     <a href="#materials" class="side-nav-link" data-nav-target="materials">
       <i class="fas fa-atom"></i> 材料
@@ -911,7 +1163,7 @@
 
 <div class="container">
 
-  <!-- ===== 顶部导航（锚点指向下方卡片ID） ===== -->
+  <!-- ===== 顶部导航 ===== -->
   <div class="top-bar">
     <div class="logo-area">
       <i class="fas fa-microchip"></i>
@@ -919,7 +1171,7 @@
     </div>
     <div class="nav-links" data-link-group>
       <span><i class="fas fa-dna"></i> <a href="#biology">生物</a></span>
-      <span><i class="fas fa-x-ray"></i> <a href="#medical">医疗</a></span>
+      <span><i class="fas fa-hospital"></i> <a href="#medical">医疗</a></span>
       <span><i class="fas fa-atom"></i> <a href="#materials">材料</a></span>
       <span><i class="fas fa-cloud-sun"></i> <a href="#weather">气象</a></span>
       <span><i class="fas fa-cubes"></i> <a href="#physics">物理</a></span>
@@ -937,7 +1189,7 @@
     </div>
     <div class="hero-tags" data-link-group>
       <span class="tag"><i class="fas fa-dna"></i><a href="#biology">生物</a></span>
-      <span class="tag"><i class="fas fa-x-ray"></i> <a href="#medical">医疗</a></span>
+      <span class="tag"><i class="fas fa-hospital"></i> <a href="#medical">医疗</a></span>
       <span class="tag"><i class="fas fa-atom"></i> <a href="#materials">材料</a></span>
       <span class="tag"><i class="fas fa-cloud-sun"></i> <a href="#weather">气象</a></span>
       <span class="tag"><i class="fas fa-cubes"></i> <a href="#physics">物理</a></span>
@@ -1047,22 +1299,271 @@
   <!-- ===== 2. 医疗 ===== -->
   <div class="card" id="medical">
     <div class="card-header">
-      <i class="fas fa-x-ray"></i>
+      <i class="fas fa-hospital"></i>
       <h2><a href="https://github.com/MetaX-MACA/MedicalImage" target="_blank">Medical</a></h2>
     </div>
     <div class="card-desc">
       <i class="fas fa-heartbeat"></i> 医学影像 · 分割 · 配准 · 三维理解 · 病理
     </div>
-    <div class="sub-list" data-link-group>
-      <div class="sub-item"><a href="https://github.com/MetaX-MACA/MedicalImage/tree/main/MONAI" target="_blank">MONAI</a> <span class="badge">框架</span> <span class="desc">医学影像深度学习</span></div>
-      <div class="sub-item"><a href="https://github.com/MetaX-MACA/MedicalImage/tree/main/segmentation/MedSAM" target="_blank">MedSAM</a> <span class="badge">分割</span> <span class="desc">可提示通用2D分割</span></div>
-      <div class="sub-item"><a href="https://github.com/MetaX-MACA/MedicalImage/tree/main/segmentation/MedSAM2" target="_blank">MedSAM2</a> <span class="badge">分割</span> <span class="desc">可提示通用3D分割</span></div>
-      <div class="sub-item"><a href="https://github.com/MetaX-MACA/MedicalImage/tree/main/segmentation/nnInteractive" target="_blank">nnInteractive</a> <span class="badge">分割</span> <span class="desc">3D交互式分割（点/涂抹/框/套索）</span></div>
-      <div class="sub-item"><a href="https://github.com/MetaX-MACA/MedicalImage/tree/main/segmentation/nnUNet" target="_blank">nnUNet</a> <span class="badge">分割</span> <span class="desc">自适应U-Net框架</span></div>
-      <div class="sub-item"><a href="https://github.com/MetaX-MACA/MedicalImage/tree/main/segmentation/SAM-Med3D" target="_blank">SAM-Med3D</a> <span class="badge">分割</span> <span class="desc">3D医学图像通用分割</span></div>
-      <div class="sub-item"><a href="https://github.com/MetaX-MACA/MedicalImage/tree/main/segmentation/TotalSegmentatorV2" target="_blank">TotalSegmentatorV2</a> <span class="badge">分割</span> <span class="desc">CT全身104结构分割</span></div>
-      <div class="sub-item"><a href="https://github.com/MetaX-MACA/MedicalImage/tree/main/segmentation/vista3d" target="_blank">VISTA3D</a> <span class="badge">分割</span> <span class="desc">可提示CT/MR基础模型</span></div>
-      <div class="sub-item"><a href="https://github.com/MetaX-MACA/MedicalImage/tree/main/pathology/prov-gigapath" target="_blank">prov-gigapath</a> <span class="badge">病理</span> <span class="desc">全切片病理基础模型</span></div>
+
+    <!-- ===== 场景筛选 ===== -->
+    <div class="filter-bar" role="toolbar" aria-label="场景筛选">
+      <button class="filter active" data-filter="summary">场景总览</button>
+      <button class="filter" data-filter="segment">分割标注</button>
+      <button class="filter" data-filter="vlm">影像理解</button>
+      <button class="filter" data-filter="register">配准定量</button>
+      <button class="filter" data-filter="generate">生成增强</button>
+      <button class="filter" data-filter="pathology">病理表征</button>
+      <button class="filter" data-filter="infra">运行底座</button>
+    </div>
+
+    <!-- ===== 场景总览面板 ===== -->
+    <div class="summary-panel" id="summaryView">
+      <div class="summary-panel-head">
+        <h3>场景总览</h3>
+        <p>每个子场景均已列出对应的可运行模型或组件，选择上方标签查看该场景的能力详情。</p>
+      </div>
+      <div class="summary-grid">
+        <a class="summary-item" href="#medical" data-jump="segment">
+          <div class="summary-item-top">
+            <span class="summary-index">01</span><strong>分割标注</strong><span class="summary-count">7 个模型</span>
+          </div>
+          <p>2D/3D 器官与病灶分割，支持交互提示和人工复核。</p>
+          <div class="summary-models"><b>具体模型</b>MedSAM · MedSAM2 · SAM-Med3D · nnInteractive · nnUNet · TotalSegmentatorV2 · VISTA3D</div>
+        </a>
+        <a class="summary-item" href="#medical" data-jump="vlm">
+          <div class="summary-item-top">
+            <span class="summary-index">02</span><strong>影像理解</strong><span class="summary-count">4 个模型</span>
+          </div>
+          <p>胸片、3D CT 的问答、定位、表型与报告研究入口。</p>
+          <div class="summary-models"><b>具体模型</b>LLaVA-Med · Merlin · NV-Reason-CXR · CheXagent</div>
+        </a>
+        <a class="summary-item" href="#medical" data-jump="register">
+          <div class="summary-item-top">
+            <span class="summary-index">03</span><strong>配准定量</strong><span class="summary-count">4 个模型</span>
+          </div>
+          <p>刚性、仿射和形变配准，输出形变场与定量指标。</p>
+          <div class="summary-models"><b>具体模型</b>VoxelMorph · ICON · uniGradICON · Plastimatch</div>
+        </a>
+        <a class="summary-item" href="#medical" data-jump="generate">
+          <div class="summary-item-top">
+            <span class="summary-index">04</span><strong>生成增强</strong><span class="summary-count">5 个模型</span>
+          </div>
+          <p>CT/MRI 生成、合成与增强，输出可追溯研究素材。</p>
+          <div class="summary-models"><b>具体模型</b>NV-Generate-CT rflow · NV-Generate-MR · NV-Generate-MR-Brain · MedSegDiff · 3D-MedDiffusion</div>
+        </a>
+        <a class="summary-item" href="#medical" data-jump="pathology">
+          <div class="summary-item-top">
+            <span class="summary-index">05</span><strong>病理表征</strong><span class="summary-count">2 个模型</span>
+          </div>
+          <p>病理 patch、WSI 和 gigapixel 图像的 foundation 表征。</p>
+          <div class="summary-models"><b>具体模型</b>UNI · Prov-GigaPath</div>
+        </a>
+        <a class="summary-item" href="#medical" data-jump="infra">
+          <div class="summary-item-top">
+            <span class="summary-index">06</span><strong>运行底座</strong><span class="summary-count">4 个组件</span>
+          </div>
+          <p>统一封装、容器运行、健康检查和结果复核能力。</p>
+          <div class="summary-models"><b>具体组件</b>MONAI · Skills SDK · web-render · runtime-doctor</div>
+        </a>
+      </div>
+    </div>
+
+    <!-- ===== 模型卡片网格 ===== -->
+    <div class="cap-grid" id="capGrid">
+      <!-- 分割标注 -->
+      <article class="model-card" data-category="segment">
+        <div class="model-card-top"><span class="model-category">分割标注</span><span class="status">可直接运行</span></div>
+        <h3>MedSAM</h3>
+        <p>面向医学影像的点、框提示分割，快速生成器官或病灶 mask。</p>
+        <div class="tags"><span class="tag">CT / MRI</span><span class="tag">2D</span><span class="tag">prompt</span></div>
+        <a class="card-link" href="https://github.com/MetaX-MACA/MedicalImage/tree/main/segmentation" target="_blank" rel="noreferrer">查看项目入口 <i class="fas fa-arrow-up-right-from-square" style="font-size:0.65rem;"></i></a>
+      </article>
+      <article class="model-card" data-category="segment">
+        <div class="model-card-top"><span class="model-category">分割标注</span><span class="status">可直接运行</span></div>
+        <h3>MedSAM2</h3>
+        <p>支持跨切片和连续影像的提示分割，适合 2D/3D 标注交互。</p>
+        <div class="tags"><span class="tag">CT / MRI</span><span class="tag">2D / 3D</span><span class="tag">prompt</span></div>
+        <a class="card-link" href="https://github.com/MetaX-MACA/MedicalImage/tree/main/segmentation" target="_blank" rel="noreferrer">查看项目入口 <i class="fas fa-arrow-up-right-from-square" style="font-size:0.65rem;"></i></a>
+      </article>
+      <article class="model-card" data-category="segment">
+        <div class="model-card-top"><span class="model-category">分割标注</span><span class="status">可直接运行</span></div>
+        <h3>SAM-Med3D</h3>
+        <p>面向体数据的 3D 提示分割，输出体素级 mask 与预览。</p>
+        <div class="tags"><span class="tag">3D CT</span><span class="tag">3D MRI</span><span class="tag">mask</span></div>
+        <a class="card-link" href="https://github.com/MetaX-MACA/MedicalImage/tree/main/segmentation" target="_blank" rel="noreferrer">查看项目入口 <i class="fas fa-arrow-up-right-from-square" style="font-size:0.65rem;"></i></a>
+      </article>
+      <article class="model-card" data-category="segment">
+        <div class="model-card-top"><span class="model-category">分割标注</span><span class="status">可直接运行</span></div>
+        <h3>nnInteractive</h3>
+        <p>通过点、框和 scribble 交互修订分割结果，支持人工复核闭环。</p>
+        <div class="tags"><span class="tag">interactive</span><span class="tag">2D / 3D</span><span class="tag">QC</span></div>
+        <a class="card-link" href="https://github.com/MetaX-MACA/MedicalImage/tree/main/segmentation" target="_blank" rel="noreferrer">查看项目入口 <i class="fas fa-arrow-up-right-from-square" style="font-size:0.65rem;"></i></a>
+      </article>
+      <article class="model-card" data-category="segment">
+        <div class="model-card-top"><span class="model-category">分割标注</span><span class="status">可直接运行</span></div>
+        <h3>nnUNet</h3>
+        <p>自配置的 3D 分割训练与推理基线，适合快速建立任务模型。</p>
+        <div class="tags"><span class="tag">CT / MRI</span><span class="tag">training</span><span class="tag">inference</span></div>
+        <a class="card-link" href="https://github.com/MetaX-MACA/MedicalImage/tree/main/segmentation" target="_blank" rel="noreferrer">查看项目入口 <i class="fas fa-arrow-up-right-from-square" style="font-size:0.65rem;"></i></a>
+      </article>
+      <article class="model-card" data-category="segment">
+        <div class="model-card-top"><span class="model-category">分割标注</span><span class="status">可直接运行</span></div>
+        <h3>TotalSegmentatorV2</h3>
+        <p>提供 CT 多器官和结构的批量分割，输出标准化标签集合。</p>
+        <div class="tags"><span class="tag">CT</span><span class="tag">multi-label</span><span class="tag">NIfTI</span></div>
+        <a class="card-link" href="https://github.com/MetaX-MACA/MedicalImage/tree/main/segmentation" target="_blank" rel="noreferrer">查看项目入口 <i class="fas fa-arrow-up-right-from-square" style="font-size:0.65rem;"></i></a>
+      </article>
+      <article class="model-card" data-category="segment">
+        <div class="model-card-top"><span class="model-category">分割标注</span><span class="status">可直接运行</span></div>
+        <h3>VISTA3D</h3>
+        <p>统一的 3D 医学影像分割入口，覆盖交互提示和自动分割。</p>
+        <div class="tags"><span class="tag">3D CT</span><span class="tag">3D MRI</span><span class="tag">prompt</span></div>
+        <a class="card-link" href="https://github.com/MetaX-MACA/MedicalImage/tree/main/segmentation" target="_blank" rel="noreferrer">查看项目入口 <i class="fas fa-arrow-up-right-from-square" style="font-size:0.65rem;"></i></a>
+      </article>
+
+      <!-- 影像理解 -->
+      <article class="model-card" data-category="vlm">
+        <div class="model-card-top"><span class="model-category">影像理解</span><span class="status">可直接运行</span></div>
+        <h3>LLaVA-Med</h3>
+        <p>医学视觉问答和图像对话研究入口，输出结构化回答与解释。</p>
+        <div class="tags"><span class="tag">CXR</span><span class="tag">VQA</span><span class="tag">report</span></div>
+        <a class="card-link" href="https://github.com/MetaX-MACA/MedicalImage" target="_blank" rel="noreferrer">查看项目入口 <i class="fas fa-arrow-up-right-from-square" style="font-size:0.65rem;"></i></a>
+      </article>
+      <article class="model-card" data-category="vlm">
+        <div class="model-card-top"><span class="model-category">影像理解</span><span class="status">可直接运行</span></div>
+        <h3>Merlin</h3>
+        <p>胸片和 3D CT 的 embedding、表型与预测能力，支持 API 调用。</p>
+        <div class="tags"><span class="tag">CXR</span><span class="tag">3D CT</span><span class="tag">embedding</span></div>
+        <a class="card-link" href="https://github.com/MetaX-MACA/MedicalImage" target="_blank" rel="noreferrer">查看项目入口 <i class="fas fa-arrow-up-right-from-square" style="font-size:0.65rem;"></i></a>
+      </article>
+      <article class="model-card" data-category="vlm">
+        <div class="model-card-top"><span class="model-category">影像理解</span><span class="status">可直接运行</span></div>
+        <h3>NV-Reason-CXR</h3>
+        <p>胸片 finding、定位和结构化报告生成，便于复核工作流原型。</p>
+        <div class="tags"><span class="tag">CXR</span><span class="tag">grounding</span><span class="tag">report</span></div>
+        <a class="card-link" href="https://github.com/MetaX-MACA/MedicalImage" target="_blank" rel="noreferrer">查看项目入口 <i class="fas fa-arrow-up-right-from-square" style="font-size:0.65rem;"></i></a>
+      </article>
+      <article class="model-card" data-category="vlm">
+        <div class="model-card-top"><span class="model-category">影像理解</span><span class="status">可直接运行</span></div>
+        <h3>CheXagent</h3>
+        <p>胸片多任务 API，覆盖 finding、问答与短语定位研究。</p>
+        <div class="tags"><span class="tag">CXR</span><span class="tag">15 APIs</span><span class="tag">VQA</span></div>
+        <a class="card-link" href="https://github.com/MetaX-MACA/MedicalImage" target="_blank" rel="noreferrer">查看项目入口 <i class="fas fa-arrow-up-right-from-square" style="font-size:0.65rem;"></i></a>
+      </article>
+
+      <!-- 配准定量 -->
+      <article class="model-card" data-category="register">
+        <div class="model-card-top"><span class="model-category">配准定量</span><span class="status">可直接运行</span></div>
+        <h3>VoxelMorph</h3>
+        <p>学习型形变配准基线，输出变换场和 warped volume。</p>
+        <div class="tags"><span class="tag">3D CT</span><span class="tag">deformable</span><span class="tag">vector field</span></div>
+        <a class="card-link" href="https://github.com/MetaX-MACA/MedicalImage" target="_blank" rel="noreferrer">查看项目入口 <i class="fas fa-arrow-up-right-from-square" style="font-size:0.65rem;"></i></a>
+      </article>
+      <article class="model-card" data-category="register">
+        <div class="model-card-top"><span class="model-category">配准定量</span><span class="status">可直接运行</span></div>
+        <h3>ICON</h3>
+        <p>高效的可逆形变配准，支持几何一致性检查与定量输出。</p>
+        <div class="tags"><span class="tag">3D CT</span><span class="tag">deformable</span><span class="tag">Jacobian</span></div>
+        <a class="card-link" href="https://github.com/MetaX-MACA/MedicalImage" target="_blank" rel="noreferrer">查看项目入口 <i class="fas fa-arrow-up-right-from-square" style="font-size:0.65rem;"></i></a>
+      </article>
+      <article class="model-card" data-category="register">
+        <div class="model-card-top"><span class="model-category">配准定量</span><span class="status">可直接运行</span></div>
+        <h3>uniGradICON</h3>
+        <p>统一梯度优化配准入口，适合跨模态和多时相影像实验。</p>
+        <div class="tags"><span class="tag">CT / MRI</span><span class="tag">affine</span><span class="tag">QC</span></div>
+        <a class="card-link" href="https://github.com/MetaX-MACA/MedicalImage" target="_blank" rel="noreferrer">查看项目入口 <i class="fas fa-arrow-up-right-from-square" style="font-size:0.65rem;"></i></a>
+      </article>
+      <article class="model-card" data-category="register">
+        <div class="model-card-top"><span class="model-category">配准定量</span><span class="status">可直接运行</span></div>
+        <h3>Plastimatch</h3>
+        <p>传统配准与影像工具链，覆盖刚性、仿射、DRR 和 FDK。</p>
+        <div class="tags"><span class="tag">CT</span><span class="tag">rigid</span><span class="tag">DRR / FDK</span></div>
+        <a class="card-link" href="https://github.com/MetaX-MACA/MedicalImage" target="_blank" rel="noreferrer">查看项目入口 <i class="fas fa-arrow-up-right-from-square" style="font-size:0.65rem;"></i></a>
+      </article>
+
+      <!-- 生成增强 -->
+      <article class="model-card" data-category="generate">
+        <div class="model-card-top"><span class="model-category">生成增强</span><span class="status">可直接运行</span></div>
+        <h3>NV-Generate-CT rflow</h3>
+        <p>CT 生成与增强研究入口，输出可复现的 NIfTI 素材。</p>
+        <div class="tags"><span class="tag">CT</span><span class="tag">3D</span><span class="tag">diffusion</span></div>
+        <a class="card-link" href="https://github.com/MetaX-MACA/MedicalImage" target="_blank" rel="noreferrer">查看项目入口 <i class="fas fa-arrow-up-right-from-square" style="font-size:0.65rem;"></i></a>
+      </article>
+      <article class="model-card" data-category="generate">
+        <div class="model-card-top"><span class="model-category">生成增强</span><span class="status">可直接运行</span></div>
+        <h3>NV-Generate-MR</h3>
+        <p>MR 影像生成和跨模态合成，保留几何与元数据检查。</p>
+        <div class="tags"><span class="tag">MRI</span><span class="tag">3D</span><span class="tag">NIfTI</span></div>
+        <a class="card-link" href="https://github.com/MetaX-MACA/MedicalImage" target="_blank" rel="noreferrer">查看项目入口 <i class="fas fa-arrow-up-right-from-square" style="font-size:0.65rem;"></i></a>
+      </article>
+      <article class="model-card" data-category="generate">
+        <div class="model-card-top"><span class="model-category">生成增强</span><span class="status">可直接运行</span></div>
+        <h3>NV-Generate-MR-Brain</h3>
+        <p>脑部 T1 MRI 生成场景，支持 A100 与 C500 输出对比。</p>
+        <div class="tags"><span class="tag">T1 MRI</span><span class="tag">A100 / C500</span><span class="tag">NIfTI</span></div>
+        <a class="card-link" href="https://github.com/MetaX-MACA/MedicalImage" target="_blank" rel="noreferrer">查看项目入口 <i class="fas fa-arrow-up-right-from-square" style="font-size:0.65rem;"></i></a>
+      </article>
+      <article class="model-card" data-category="generate">
+        <div class="model-card-top"><span class="model-category">生成增强</span><span class="status">可直接运行</span></div>
+        <h3>MedSegDiff</h3>
+        <p>扩散模型分割基线，适合生成式分割与鲁棒性实验。</p>
+        <div class="tags"><span class="tag">2D / 3D</span><span class="tag">segmentation</span><span class="tag">diffusion</span></div>
+        <a class="card-link" href="https://github.com/MetaX-MACA/MedicalImage" target="_blank" rel="noreferrer">查看项目入口 <i class="fas fa-arrow-up-right-from-square" style="font-size:0.65rem;"></i></a>
+      </article>
+      <article class="model-card" data-category="generate">
+        <div class="model-card-top"><span class="model-category">生成增强</span><span class="status">可直接运行</span></div>
+        <h3>3D-MedDiffusion</h3>
+        <p>面向体数据的医学扩散生成，输出可追溯研究样本。</p>
+        <div class="tags"><span class="tag">3D CT</span><span class="tag">3D MRI</span><span class="tag">diffusion</span></div>
+        <a class="card-link" href="https://github.com/MetaX-MACA/MedicalImage" target="_blank" rel="noreferrer">查看项目入口 <i class="fas fa-arrow-up-right-from-square" style="font-size:0.65rem;"></i></a>
+      </article>
+
+      <!-- 病理表征 -->
+      <article class="model-card" data-category="pathology">
+        <div class="model-card-top"><span class="model-category">病理表征</span><span class="status">可直接运行</span></div>
+        <h3>UNI</h3>
+        <p>病理 patch foundation 表征入口，服务于检索和下游分类。</p>
+        <div class="tags"><span class="tag">WSI</span><span class="tag">patch</span><span class="tag">embedding</span></div>
+        <a class="card-link" href="https://github.com/MetaX-MACA/MedicalImage" target="_blank" rel="noreferrer">查看项目入口 <i class="fas fa-arrow-up-right-from-square" style="font-size:0.65rem;"></i></a>
+      </article>
+      <article class="model-card" data-category="pathology">
+        <div class="model-card-top"><span class="model-category">病理表征</span><span class="status">可直接运行</span></div>
+        <h3>Prov-GigaPath</h3>
+        <p>面向 gigapixel WSI 的分层表征，支持切片级下游研究。</p>
+        <div class="tags"><span class="tag">WSI</span><span class="tag">gigapixel</span><span class="tag">ViT</span></div>
+        <a class="card-link" href="https://github.com/MetaX-MACA/MedicalImage/tree/main/pathology/prov-gigapath" target="_blank" rel="noreferrer">查看项目入口 <i class="fas fa-arrow-up-right-from-square" style="font-size:0.65rem;"></i></a>
+      </article>
+
+      <!-- 运行底座 -->
+      <article class="model-card" data-category="infra">
+        <div class="model-card-top"><span class="model-category">运行底座</span><span class="status">统一入口</span></div>
+        <h3>MONAI</h3>
+        <p>医学影像训练、推理和数据处理的基础框架入口。</p>
+        <div class="tags"><span class="tag">framework</span><span class="tag">training</span><span class="tag">inference</span></div>
+        <a class="card-link" href="https://github.com/MetaX-MACA/MedicalImage/tree/main/MONAI" target="_blank" rel="noreferrer">查看项目入口 <i class="fas fa-arrow-up-right-from-square" style="font-size:0.65rem;"></i></a>
+      </article>
+      <article class="model-card" data-category="infra">
+        <div class="model-card-top"><span class="model-category">运行底座</span><span class="status">统一入口</span></div>
+        <h3>Medical Skills SDK</h3>
+        <p>将模型、算法和运行环境封装为统一 build/deploy/infer 合同。</p>
+        <div class="tags"><span class="tag">SDK</span><span class="tag">Docker</span><span class="tag">schema</span></div>
+        <a class="card-link" href="https://github.com/MetaX-MACA/MedicalImage" target="_blank" rel="noreferrer">查看项目入口 <i class="fas fa-arrow-up-right-from-square" style="font-size:0.65rem;"></i></a>
+      </article>
+      <article class="model-card" data-category="infra">
+        <div class="model-card-top"><span class="model-category">运行底座</span><span class="status dev">可视化交付</span></div>
+        <h3>web-render</h3>
+        <p>浏览器预览 JSON、图像、NIfTI/NRRD 和报告 artifact。</p>
+        <div class="tags"><span class="tag">viewer</span><span class="tag">artifact</span><span class="tag">report</span></div>
+        <a class="card-link" href="https://github.com/MetaX-MACA/MedicalImage" target="_blank" rel="noreferrer">查看项目入口 <i class="fas fa-arrow-up-right-from-square" style="font-size:0.65rem;"></i></a>
+      </article>
+      <article class="model-card" data-category="infra">
+        <div class="model-card-top"><span class="model-category">运行底座</span><span class="status dev">环境检查</span></div>
+        <h3>runtime-doctor</h3>
+        <p>检查 Docker、GPU、共享盘和依赖状态，保证运行入口可复现。</p>
+        <div class="tags"><span class="tag">health</span><span class="tag">MACA</span><span class="tag">Docker</span></div>
+        <a class="card-link" href="https://github.com/MetaX-MACA/MedicalImage" target="_blank" rel="noreferrer">查看项目入口 <i class="fas fa-arrow-up-right-from-square" style="font-size:0.65rem;"></i></a>
+      </article>
     </div>
   </div>
 
@@ -1339,12 +1840,10 @@
     var group = link.closest('[data-link-group]');
     if (!group) return;
 
-    // 移除同组其它项的 active
     group.querySelectorAll('a.active').forEach(function (a) {
       a.classList.remove('active');
     });
 
-    // 当前项设为 active
     link.classList.add('active');
   });
 })();
@@ -1357,24 +1856,19 @@
 
   if (!sideNav || !toggle) return;
 
-  // 切换展开/收起
   toggle.addEventListener('click', function () {
     var collapsed = sideNav.classList.toggle('collapsed');
-    // 更新箭头方向：收起时显示左箭头（提示可展开），展开时显示右箭头（提示可收起）
     if (toggleIcon) {
       toggleIcon.className = collapsed ? 'fas fa-chevron-left' : 'fas fa-chevron-right';
     }
   });
 
-  // 点击侧边栏链接时：确保侧边栏展开，并同步激活态
   document.querySelectorAll('.side-nav-link').forEach(function (link) {
     link.addEventListener('click', function (e) {
-      // 确保侧边栏展开
       sideNav.classList.remove('collapsed');
       if (toggleIcon) {
         toggleIcon.className = 'fas fa-chevron-right';
       }
-      // 手动移除其它 current 并设置当前
       document.querySelectorAll('.side-nav-link.current').forEach(function (el) {
         el.classList.remove('current');
       });
@@ -1382,7 +1876,7 @@
     });
   });
 
-  // ===== 回到顶部 =====
+  // 回到顶部
   var backToTop = document.getElementById('backToTop');
   if (backToTop) {
     backToTop.addEventListener('click', function (e) {
@@ -1391,17 +1885,16 @@
     });
   }
 
-  // ===== 滚动高亮当前主题 =====
+  // 滚动高亮当前主题
   var sections = ['biology', 'medical', 'materials', 'weather', 'physics']
     .map(function (id) { return document.getElementById(id); })
     .filter(Boolean);
 
   function updateCurrentOnScroll() {
     var scrollPos = window.scrollY || window.pageYOffset;
-    var offset = 140; // 提前高亮的偏移量
+    var offset = 140;
     var currentId = null;
 
-    // 从下往上找第一个满足条件的区域
     for (var i = sections.length - 1; i >= 0; i--) {
       var sec = sections[i];
       if (sec.offsetTop - offset <= scrollPos) {
@@ -1409,7 +1902,6 @@
         break;
       }
     }
-    // 如果在最顶部，默认高亮第一个
     if (!currentId && sections.length > 0 && scrollPos < sections[0].offsetTop - offset) {
       currentId = sections[0].id;
     }
@@ -1424,7 +1916,6 @@
     });
   }
 
-  // 节流滚动事件
   var ticking = false;
   window.addEventListener('scroll', function () {
     if (!ticking) {
@@ -1436,8 +1927,64 @@
     }
   });
 
-  // 初始化一次
   updateCurrentOnScroll();
+})();
+
+/* ===== 医疗卡片：场景筛选 ===== */
+(function () {
+  var filters = document.querySelectorAll('.filter');
+  var grid = document.getElementById('capGrid');
+  var summaryView = document.getElementById('summaryView');
+  if (!filters.length || !grid) return;
+
+  var cards = grid.querySelectorAll('.model-card');
+
+  function applyFilter(value) {
+    // 按钮状态
+    filters.forEach(function (b) {
+      b.classList.toggle('active', b.getAttribute('data-filter') === value);
+    });
+
+    if (value === 'summary') {
+      // 显示总览，隐藏所有具体卡片
+      if (summaryView) summaryView.classList.remove('hidden');
+      grid.classList.add('filtered');
+      cards.forEach(function (c) { c.classList.remove('show'); });
+    } else {
+      // 隐藏总览，显示匹配卡片
+      if (summaryView) summaryView.classList.add('hidden');
+      grid.classList.add('filtered');
+      cards.forEach(function (c) {
+        var cat = c.getAttribute('data-category');
+        c.classList.toggle('show', cat === value);
+      });
+    }
+  }
+
+  filters.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      applyFilter(btn.getAttribute('data-filter'));
+    });
+  });
+
+  // 场景总览项点击后切换到对应分类
+  document.querySelectorAll('.summary-item[data-jump]').forEach(function (item) {
+    item.addEventListener('click', function (e) {
+      e.preventDefault();
+      var target = item.getAttribute('data-jump');
+      if (target) {
+        applyFilter(target);
+        // 滚动到卡片区域顶部
+        var medical = document.getElementById('medical');
+        if (medical) {
+          window.scrollTo({ top: medical.offsetTop - 80, behavior: 'smooth' });
+        }
+      }
+    });
+  });
+
+  // 初始化：显示总览
+  applyFilter('summary');
 })();
 </script>
 </body>
