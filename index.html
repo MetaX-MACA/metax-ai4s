@@ -1311,10 +1311,10 @@
       <button class="filter active" data-filter="summary">场景总览</button>
       <button class="filter" data-filter="segment">分割标注</button>
       <button class="filter" data-filter="vlm">影像理解</button>
-      <button class="filter" data-filter="register">配准定量</button>
+      <button class="filter" data-filter="register">配准与重建</button>
       <button class="filter" data-filter="generate">生成增强</button>
       <button class="filter" data-filter="pathology">病理表征</button>
-      <button class="filter" data-filter="infra">运行底座</button>
+      <button class="filter" data-filter="infra">医学影像框架</button>
     </div>
 
     <!-- ===== 场景总览面板 ===== -->
@@ -1326,45 +1326,46 @@
       <div class="summary-grid">
         <a class="summary-item" href="#medical" data-jump="segment">
           <div class="summary-item-top">
-            <span class="summary-index">01</span><strong>分割标注</strong><span class="summary-count">7 个模型</span>
+            <span class="summary-index">01</span><strong>分割标注</strong><span class="summary-count">8 个模型</span>
           </div>
-          <p>2D/3D 器官与病灶分割，支持交互提示和人工复核。</p>
-          <div class="summary-models"><b>具体模型</b>MedSAM · MedSAM2 · SAM-Med3D · nnInteractive · nnUNet · TotalSegmentatorV2 · VISTA3D</div>
+          <p>覆盖医学影像 2D/3D 分割、交互式提示、自动配置分割和 CT 器官分割。</p>
+          <div class="summary-models"><b>具体模型</b>MedSAM · MedSAM2 · SAM-Med3D · nnInteractive · nnUNet · TotalSegmentatorV2 · VISTA3D · MedSegDiff</div>
         </a>
         <a class="summary-item" href="#medical" data-jump="vlm">
           <div class="summary-item-top">
-            <span class="summary-index">02</span><strong>影像理解</strong><span class="summary-count">3 个模型</span>
+            <span class="summary-index">02</span><strong>影像理解</strong><span class="summary-count">7 个模型</span>
           </div>
-          <p>胸片、3D CT 的问答、定位、表型与报告研究入口。</p>
-          <div class="summary-models"><b>具体模型</b>LLaVA-Med · Merlin · NV-Reason-CXR </div>
+          <p>支持医学图像分类、图文检索、视觉问答、三维 CT 表征、胸片分析和报告生成。</p>
+          <div class="summary-models"><b>具体模型</b>BiomedCLIP · Lingshu-7B · M3D-LaMed · MedCLIP · Merlin · NV-Reason-CXR · RadFM </div>
         </a>
         <a class="summary-item" href="#medical" data-jump="register">
           <div class="summary-item-top">
-            <span class="summary-index">03</span><strong>配准定量</strong><span class="summary-count">4 个模型</span>
+            <span class="summary-index">03</span><strong>配准与重建</strong><span class="summary-count">3 个项目</span>
           </div>
-          <p>刚性、仿射和形变配准，输出形变场与定量指标。</p>
-          <div class="summary-models"><b>具体模型</b>VoxelMorph · ICON · uniGradICON · Plastimatch</div>
+          <p>覆盖刚性配准、B-spline 配准、稠密可变形映射、DRR 投影和 FDK 锥束 CT 重建。</p>
+          <div class="summary-models"><b>具体模型</b>VoxelMorph · uniGradICON · Plastimatch</div>
+
         </a>
         <a class="summary-item" href="#medical" data-jump="generate">
           <div class="summary-item-top">
-            <span class="summary-index">04</span><strong>生成增强</strong><span class="summary-count">5 个模型</span>
+            <span class="summary-index">04</span><strong>生成增强</strong><span class="summary-count">4 个模型</span>
           </div>
-          <p>CT/MRI 生成、合成与增强，输出可追溯研究素材。</p>
-          <div class="summary-models"><b>具体模型</b>NV-Generate-CT rflow · NV-Generate-MR · NV-Generate-MR-Brain · MedSegDiff · 3D-MedDiffusion</div>
+          <p>支持三维 CT、MRI 及脑部 MRI 的条件生成和合成影像生成。</p>
+          <div class="summary-models"><b>具体模型</b>NV-Generate-CT rflow · NV-Generate-MR · NV-Generate-MR-Brain · 3D-MedDiffusion</div>
         </a>
         <a class="summary-item" href="#medical" data-jump="pathology">
           <div class="summary-item-top">
-            <span class="summary-index">05</span><strong>病理表征</strong><span class="summary-count">1 个模型</span>
+            <span class="summary-index">05</span><strong>病理表征</strong><span class="summary-count">2 个模型</span>
           </div>
-          <p>病理 patch、WSI 和 gigapixel 图像的 foundation 表征。</p>
-          <div class="summary-models"><b>具体模型</b>Prov-GigaPath</div>
+          <p>面向数字病理、全切片图像和 gigapixel 图像，提取图像嵌入、patch token 及中间层特征。</p>
+          <div class="summary-models"><b>具体模型</b>Prov-GigaPath · Hibou </div>
         </a>
         <a class="summary-item" href="#medical" data-jump="infra">
           <div class="summary-item-top">
-            <span class="summary-index">06</span><strong>运行底座</strong><span class="summary-count">4 个组件</span>
+            <span class="summary-index">06</span><strong>医学影像框架</strong><span class="summary-count">1 个框架</span>
           </div>
-          <p>统一封装、容器运行、健康检查和结果复核能力。</p>
-          <div class="summary-models"><b>具体组件</b>MONAI · Skills SDK · web-render · runtime-doctor</div>
+          <p>提供沐曦 GPU 适配的医学影像数据处理、变换方法和网络架构，覆盖分割、分类、配准与生成建模。</p>
+          <div class="summary-models"><b>具体框架</b>MONAI</div>
         </a>
       </div>
     </div>
@@ -1421,31 +1422,87 @@
         <div class="tags"><span class="tag">3D CT</span><span class="tag">3D MRI</span><span class="tag">prompt</span></div>
         <a class="card-link" href="https://github.com/MetaX-MACA/MedicalImage/tree/main/segmentation" target="_blank" rel="noreferrer">查看项目入口 <i class="fas fa-arrow-up-right-from-square" style="font-size:0.65rem;"></i></a>
       </article>
+      <article class="model-card" data-category="segment">
+        <div class="model-card-top"><span class="model-category">分割标注</span><span class="status">可直接运行</span></div>
+        <h3>MedSegDiff</h3>
+        <p>扩散模型分割基线，适合生成式分割与鲁棒性实验。</p>
+        <div class="tags"><span class="tag">2D / 3D</span><span class="tag">segmentation</span><span class="tag">diffusion</span></div>
+        <a class="card-link" target="_blank" rel="noreferrer">即将发布 </a>
+      </article>
 
       <!-- 影像理解 -->
-      <article class="model-card" data-category="vlm">
+      <!-- <article class="model-card" data-category="vlm">
         <div class="model-card-top"><span class="model-category">影像理解</span><span class="status">可直接运行</span></div>
         <h3>LLaVA-Med</h3>
         <p>医学视觉问答和图像对话研究入口，输出结构化回答与解释。</p>
         <div class="tags"><span class="tag">CXR</span><span class="tag">VQA</span><span class="tag">report</span></div>
         <a class="card-link" target="_blank" rel="noreferrer">即将发布 </a>
-      </article>
+      </article> -->
       <article class="model-card" data-category="vlm">
         <div class="model-card-top"><span class="model-category">影像理解</span><span class="status">可直接运行</span></div>
         <h3>Merlin</h3>
-        <p>胸片和 3D CT 的 embedding、表型与预测能力，支持 API 调用。</p>
-        <div class="tags"><span class="tag">CXR</span><span class="tag">3D CT</span><span class="tag">embedding</span></div>
-        <a class="card-link" target="_blank" rel="noreferrer">即将发布 </a>
+        <p>面向三维 CT 表征与医学推理的模型，支持图文/图像嵌入、表型预测、疾病风险预测和放射学报告生成。</p>
+        <div class="tags"><span class="tag">3D CT</span><span class="tag">medical reasoning</span><span class="tag">report generation</span></div>
+        <a class="card-link" href="https://github.com/Metax-MACA/MedicalImage/tree/main/vlm/merlin" target="_blank" rel="noreferrer">查看项目入口 <i class="fas fa-arrow-up-right-from-square" style="font-size:0.65rem;"></i></a>
       </article>
       <article class="model-card" data-category="vlm">
         <div class="model-card-top"><span class="model-category">影像理解</span><span class="status">可直接运行</span></div>
         <h3>NV-Reason-CXR</h3>
-        <p>胸片 finding、定位和结构化报告生成，便于复核工作流原型。</p>
-        <div class="tags"><span class="tag">CXR</span><span class="tag">grounding</span><span class="tag">report</span></div>
-        <a class="card-link" target="_blank" rel="noreferrer">即将发布 </i></a>
+        <p>面向正位胸部 X 光的视觉语言推理模型，支持异常分析、鉴别考虑、随访相关性和结构化报告任务。</p>
+        <div class="tags"><span class="tag">CXR</span><span class="tag">visual language model</span><span class="tag">report generation</span></div>
+        <a class="card-link" href="https://github.com/Metax-MACA/MedicalImage/tree/main/vlm/nv-reason-cxr" target="_blank" rel="noreferrer">查看项目入口 <i class="fas fa-arrow-up-right-from-square" style="font-size:0.65rem;"></i></a>
       </article>
-
-      <!-- 配准定量 -->
+      <article class="model-card" data-category="vlm">
+        <div class="model-card-top"><span class="model-category">影像理解</span><span class="status">可直接运行</span></div>
+        <h3>BiomedCLIP</h3>
+        <p>基于 PubMedBERT 和 ViT 的生物医学视觉语言模型，支持零样本分类与图文跨模态检索。</p>
+        <div class="tags"><span class="tag">PubMedBERT</span><span class="tag">ViT</span><span class="tag">cross-modal</span></div>
+        <a class="card-link" href="https://github.com/Metax-MACA/MedicalImage/tree/main/vlm/BiomedCLIP" target="_blank" rel="noreferrer">查看项目入口 <i class="fas fa-arrow-up-right-from-square" style="font-size:0.65rem;"></i></a>
+      </article>
+      <article class="model-card" data-category="vlm">
+        <div class="model-card-top"><span class="model-category">影像理解</span><span class="status">可直接运行</span></div>
+        <h3>Lingshu-7B</h3>
+        <p>医学多模态理解与推理模型，支持医学图像问答、描述和报告生成。</p>
+        <div class="tags"><span class="tag">multimodal</span><span class="tag">reasoning</span><span class="tag">report</span></div>
+        <a class="card-link" href="https://github.com/Metax-MACA/MedicalImage/tree/main/vlm/lingshu" target="_blank" rel="noreferrer">查看项目入口 <i class="fas fa-arrow-up-right-from-square" style="font-size:0.65rem;"></i></a>
+      </article>
+      <article class="model-card" data-category="vlm">
+        <div class="model-card-top"><span class="model-category">影像理解</span><span class="status">可直接运行</span></div>
+        <h3>M3D-LaMed</h3>
+        <p>三维医学图像多模态大语言模型，支持图像描述、视觉问答、目标定位和器官分割。</p>
+        <div class="tags"><span class="tag">3D</span><span class="tag">multimodal</span><span class="tag">language model</span></div>
+        <a class="card-link" href="https://github.com/Metax-MACA/MedicalImage/tree/main/vlm/m3d" target="_blank" rel="noreferrer">查看项目入口 <i class="fas fa-arrow-up-right-from-square" style="font-size:0.65rem;"></i></a>
+      </article>
+      <article class="model-card" data-category="vlm">
+        <div class="model-card-top"><span class="model-category">影像理解</span><span class="status">可直接运行</span></div>
+        <h3>MedCLIP</h3>
+        <p>医学图像与报告文本的对比学习模型，支持图文相似度和 CheXpert 提示分类。</p>
+        <div class="tags"><span class="tag">contrastive learning</span><span class="tag">image-text retrieval</span><span class="tag">CheXpert</span></div>
+        <a class="card-link" href="https://github.com/Metax-MACA/MedicalImage/tree/main/vlm/medclip" target="_blank" rel="noreferrer">查看项目入口 <i class="fas fa-arrow-up-right-from-square" style="font-size:0.65rem;"></i></a>
+      </article>
+      <article class="model-card" data-category="vlm">
+        <div class="model-card-top"><span class="model-category">影像理解</span><span class="status">可直接运行</span></div>
+        <h3>RadFM</h3>
+        <p>面向放射学的视觉语言基础模型，支持 2D/3D、多图像输入、视觉问答和报告生成。</p>
+        <div class="tags"><span class="tag">radiology</span><span class="tag">visual language model</span><span class="tag">report generation</span></div>
+        <a class="card-link" href="https://github.com/Metax-MACA/MedicalImage/tree/main/vlm/radfm" target="_blank" rel="noreferrer">查看项目入口 <i class="fas fa-arrow-up-right-from-square" style="font-size:0.65rem;"></i></a>
+      </article>
+       <!-- BiomedCLIP · Lingshu-7B · M3D-LaMed · MedCLIP · Merlin · NV-Reason-CXR · RadFM -->
+      <!-- 配准与重建 -->
+      <article class="model-card" data-category="register">
+        <div class="model-card-top"><span class="model-category">配准定量</span><span class="status">可直接运行</span></div>
+        <h3>uniGradICON</h3>
+        <p>统一梯度优化配准入口，适合跨模态和多时相影像实验。</p>
+        <div class="tags"><span class="tag">CT / MRI</span><span class="tag">affine</span><span class="tag">QC</span></div>
+        <a class="card-link" href="https://github.com/Metax-MACA/MedicalImage/tree/main/registration/unigradicon" target="_blank" rel="noreferrer">查看项目入口 <i class="fas fa-arrow-up-right-from-square" style="font-size:0.65rem;"></i></a>
+      </article>
+      <article class="model-card" data-category="register">
+        <div class="model-card-top"><span class="model-category">配准定量</span><span class="status">可直接运行</span></div>
+        <h3>Plastimatch</h3>
+        <p>传统配准与影像工具链，覆盖刚性、仿射、DRR 和 FDK。</p>
+        <div class="tags"><span class="tag">CT</span><span class="tag">rigid</span><span class="tag">DRR / FDK</span></div>
+        <a class="card-link" href="https://github.com/Metax-MACA/MedicalImage/tree/main/registration/plastimatch" target="_blank" rel="noreferrer">查看项目入口 <i class="fas fa-arrow-up-right-from-square" style="font-size:0.65rem;"></i></a>
+      </article>
       <article class="model-card" data-category="register">
         <div class="model-card-top"><span class="model-category">配准定量</span><span class="status">可直接运行</span></div>
         <h3>VoxelMorph</h3>
@@ -1453,27 +1510,13 @@
         <div class="tags"><span class="tag">3D CT</span><span class="tag">deformable</span><span class="tag">vector field</span></div>
         <a class="card-link" target="_blank" rel="noreferrer">即将发布</a>
       </article>
-      <article class="model-card" data-category="register">
+      <!-- <article class="model-card" data-category="register">
         <div class="model-card-top"><span class="model-category">配准定量</span><span class="status">可直接运行</span></div>
         <h3>ICON</h3>
         <p>高效的可逆形变配准，支持几何一致性检查与定量输出。</p>
         <div class="tags"><span class="tag">3D CT</span><span class="tag">deformable</span><span class="tag">Jacobian</span></div>
         <a class="card-link" target="_blank" rel="noreferrer">即将发布</a>
-      </article>
-      <article class="model-card" data-category="register">
-        <div class="model-card-top"><span class="model-category">配准定量</span><span class="status">可直接运行</span></div>
-        <h3>uniGradICON</h3>
-        <p>统一梯度优化配准入口，适合跨模态和多时相影像实验。</p>
-        <div class="tags"><span class="tag">CT / MRI</span><span class="tag">affine</span><span class="tag">QC</span></div>
-        <a class="card-link" target="_blank" rel="noreferrer">即将发布</a>
-      </article>
-      <article class="model-card" data-category="register">
-        <div class="model-card-top"><span class="model-category">配准定量</span><span class="status">可直接运行</span></div>
-        <h3>Plastimatch</h3>
-        <p>传统配准与影像工具链，覆盖刚性、仿射、DRR 和 FDK。</p>
-        <div class="tags"><span class="tag">CT</span><span class="tag">rigid</span><span class="tag">DRR / FDK</span></div>
-        <a class="card-link" target="_blank" rel="noreferrer">即将发布</a>
-      </article>
+      </article> -->
 
       <!-- 生成增强 -->
       <article class="model-card" data-category="generate">
@@ -1481,28 +1524,21 @@
         <h3>NV-Generate-CT rflow</h3>
         <p>CT 生成与增强研究入口，输出可复现的 NIfTI 素材。</p>
         <div class="tags"><span class="tag">CT</span><span class="tag">3D</span><span class="tag">diffusion</span></div>
-        <a class="card-link" target="_blank" rel="noreferrer">即将发布 </a>
+        <a class="card-link" href="https://github.com/Metax-MACA/MedicalImage/tree/main/generative/nv-generate-ct-rflow" target="_blank" rel="noreferrer">查看项目入口 <i class="fas fa-arrow-up-right-from-square" style="font-size:0.65rem;"></i></a>
       </article>
       <article class="model-card" data-category="generate">
         <div class="model-card-top"><span class="model-category">生成增强</span><span class="status">可直接运行</span></div>
         <h3>NV-Generate-MR</h3>
         <p>MR 影像生成和跨模态合成，保留几何与元数据检查。</p>
         <div class="tags"><span class="tag">MRI</span><span class="tag">3D</span><span class="tag">NIfTI</span></div>
-        <a class="card-link"  target="_blank" rel="noreferrer">即将发布 </a>
+        <a class="card-link" href="https://github.com/Metax-MACA/MedicalImage/tree/main/generative/nv-generate-mr" target="_blank" rel="noreferrer">查看项目入口 <i class="fas fa-arrow-up-right-from-square" style="font-size:0.65rem;"></i></a>
       </article>
       <article class="model-card" data-category="generate">
         <div class="model-card-top"><span class="model-category">生成增强</span><span class="status">可直接运行</span></div>
         <h3>NV-Generate-MR-Brain</h3>
         <p>脑部 T1 MRI 生成场景，支持 A100 与 C500 输出对比。</p>
         <div class="tags"><span class="tag">T1 MRI</span><span class="tag">A100 / C500</span><span class="tag">NIfTI</span></div>
-        <a class="card-link" target="_blank" rel="noreferrer">即将发布 </a>
-      </article>
-      <article class="model-card" data-category="generate">
-        <div class="model-card-top"><span class="model-category">生成增强</span><span class="status">可直接运行</span></div>
-        <h3>MedSegDiff</h3>
-        <p>扩散模型分割基线，适合生成式分割与鲁棒性实验。</p>
-        <div class="tags"><span class="tag">2D / 3D</span><span class="tag">segmentation</span><span class="tag">diffusion</span></div>
-        <a class="card-link" target="_blank" rel="noreferrer">即将发布 </a>
+        <a class="card-link" href="https://github.com/Metax-MACA/MedicalImage/tree/main/generative/nv-generate-mr-brain" target="_blank" rel="noreferrer">查看项目入口 <i class="fas fa-arrow-up-right-from-square" style="font-size:0.65rem;"></i></a>
       </article>
       <article class="model-card" data-category="generate">
         <div class="model-card-top"><span class="model-category">生成增强</span><span class="status">可直接运行</span></div>
@@ -1520,35 +1556,21 @@
         <div class="tags"><span class="tag">WSI</span><span class="tag">gigapixel</span><span class="tag">ViT</span></div>
         <a class="card-link" href="https://github.com/MetaX-MACA/MedicalImage/tree/main/pathology/prov-gigapath" target="_blank" rel="noreferrer">查看项目入口 <i class="fas fa-arrow-up-right-from-square" style="font-size:0.65rem;"></i></a>
       </article>
+      <article class="model-card" data-category="pathology">
+        <div class="model-card-top"><span class="model-category">病理表征</span><span class="status">可直接运行</span></div>
+        <h3>Hibou</h3>
+        <p>面向数字病理图像的基础视觉 Transformer，可提取 CLS embedding、patch token 和中间层表示。</p>
+        <div class="tags"><span class="tag">基础视觉 Transformer</span><span class="tag">多层级特征提取</span></div>
+        <a class="card-link" href="https://github.com/MetaX-MACA/MedicalImage/tree/main/pathology/hibou" target="_blank" rel="noreferrer">查看项目入口 <i class="fas fa-arrow-up-right-from-square" style="font-size:0.65rem;"></i></a>
+      </article>
 
-      <!-- 运行底座 -->
+      <!-- 医学影像框架 -->
       <article class="model-card" data-category="infra">
-        <div class="model-card-top"><span class="model-category">运行底座</span><span class="status">统一入口</span></div>
+        <div class="model-card-top"><span class="model-category">医学影像框架</span><span class="status">统一入口</span></div>
         <h3>MONAI</h3>
         <p>医学影像训练、推理和数据处理的基础框架入口。</p>
         <div class="tags"><span class="tag">framework</span><span class="tag">training</span><span class="tag">inference</span></div>
         <a class="card-link" href="https://github.com/MetaX-MACA/MedicalImage/tree/main/MONAI" target="_blank" rel="noreferrer">查看项目入口 <i class="fas fa-arrow-up-right-from-square" style="font-size:0.65rem;"></i></a>
-      </article>
-      <article class="model-card" data-category="infra">
-        <div class="model-card-top"><span class="model-category">运行底座</span><span class="status">统一入口</span></div>
-        <h3>Medical Skills SDK</h3>
-        <p>将模型、算法和运行环境封装为统一 build/deploy/infer 合同。</p>
-        <div class="tags"><span class="tag">SDK</span><span class="tag">Docker</span><span class="tag">schema</span></div>
-        <a class="card-link" target="_blank" rel="noreferrer">即将发布</a>
-      </article>
-      <article class="model-card" data-category="infra">
-        <div class="model-card-top"><span class="model-category">运行底座</span><span class="status dev">可视化交付</span></div>
-        <h3>web-render</h3>
-        <p>浏览器预览 JSON、图像、NIfTI/NRRD 和报告 artifact。</p>
-        <div class="tags"><span class="tag">viewer</span><span class="tag">artifact</span><span class="tag">report</span></div>
-        <a class="card-link" target="_blank" rel="noreferrer">即将发布</a>
-      </article>
-      <article class="model-card" data-category="infra">
-        <div class="model-card-top"><span class="model-category">运行底座</span><span class="status dev">环境检查</span></div>
-        <h3>runtime-doctor</h3>
-        <p>检查 Docker、GPU、共享盘和依赖状态，保证运行入口可复现。</p>
-        <div class="tags"><span class="tag">health</span><span class="tag">MACA</span><span class="tag">Docker</span></div>
-        <a class="card-link" target="_blank" rel="noreferrer">即将发布</a>
       </article>
     </div>
   </div>

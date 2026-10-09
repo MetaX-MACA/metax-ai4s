@@ -95,17 +95,32 @@
 >
 > 主仓库：<https://github.com/MetaX-MACA/MedicalImage>
 
-| 模型 / 工具 | 类型 | 描述 |
+| 模型 / 工具 | 简介 | 主要领域 |
 | --- | --- | --- |
-| [MONAI](https://github.com/MetaX-MACA/MedicalImage/tree/main/MONAI) | 框架 | 医学影像深度学习 |
-| [MedSAM](https://github.com/MetaX-MACA/MedicalImage/tree/main/segmentation/MedSAM) | 分割 | 可提示通用 2D 分割 |
-| [MedSAM2](https://github.com/MetaX-MACA/MedicalImage/tree/main/segmentation/MedSAM2) | 分割 | 可提示通用 3D 分割 |
-| [nnInteractive](https://github.com/MetaX-MACA/MedicalImage/tree/main/segmentation/nnInteractive) | 分割 | 3D交互式分割（点/涂抹/框/套索） |
-| [nnUNet](https://github.com/MetaX-MACA/MedicalImage/tree/main/segmentation/nnUNet) | 分割 | 自适应 U-Net 框架 |
-| [SAM-Med3D](https://github.com/MetaX-MACA/MedicalImage/tree/main/segmentation/SAM-Med3D) | 分割 | 3D 医学图像通用分割 |
-| [TotalSegmentatorV2](https://github.com/MetaX-MACA/MedicalImage/tree/main/segmentation/TotalSegmentatorV2) | 分割 | CT 全身 104 结构分割 |
-| [VISTA3D](https://github.com/MetaX-MACA/MedicalImage/tree/main/segmentation/vista3d) | 分割 | 可提示 CT/MR 基础模型 |
-| [prov-gigapath](https://github.com/MetaX-MACA/MedicalImage/tree/main/pathology/prov-gigapath) | 病理 | 全切片病理基础模型 |
+| **[MONAI](https://github.com/MetaX-MACA/MedicalImage/tree/main/MONAI)** | MONAI核心框架的沐曦GPU适配版本，提供医学影像专用的数据处理、变换方法与网络架构。 | 影像分割、分类、配准、生成建模 |
+| **[MedSAM](https://github.com/Metax-MACA/MedicalImage/tree/main/segmentation/MedSAM)**|专为医学图像分割设计的 Segment Anything 模型变体。| 影像分割 |
+| **[MedSAM2](https://github.com/Metax-MACA/MedicalImage/tree/main/segmentation/MedSAM2)**|面向3D图像与视频分割的可提示分割基础模型。| 影像分割 |
+| **[nnInteractive](https://github.com/Metax-MACA/MedicalImage/tree/main/segmentation/nnInteractive)**|三维交互式分割模型，支持点、涂抹、边界框以及套索等多种提示方式。。| 影像分割 |
+| **[nnUNet](https://github.com/Metax-MACA/MedicalImage/tree/main/segmentation/nnUNet)**|针对特定数据集自动适配流程的语义分割框架。自动配置最合适的`U-Net`变体，并提供从数据预处理、模型训练、模型筛选到推理预测的一站式端到端解决方案。| 影像分割 |
+| **[SAM-Med3D](https://github.com/Metax-MACA/MedicalImage/tree/main/segmentation/SAM-Med3D)**|面向三维医学图像的通用分割模型。| 影像分割 |
+| **[TotalSegmentatorV2](https://github.com/Metax-MACA/MedicalImage/tree/main/segmentation/TotalSegmentatorV2)**|基于**nnUNet**模型的CT图像分割工具。| 影像分割 |
+| **[vista3d](https://github.com/Metax-MACA/MedicalImage/tree/main/segmentation/vista3d)**|三维医学影像分割基础模型。| 影像分割 |
+| MedSegDiff | 扩散模型分割基线，适配生成式分割与鲁棒性实验。 | 影像分割 |
+| **[prov-gigapath](https://github.com/Metax-MACA/MedicalImage/tree/main/pathology/prov-gigapath)** | 全切片病理基础模型 | 病理学 |
+| **[Hibou](https://github.com/Metax-MACA/MedicalImage/tree/main/pathology/hibou)** | 面向数字病理图像的基础视觉 Transformer，可提取 CLS embedding、patch token 和中间层表示。 | 病理学 |
+| **[nv-generate-ct-rflow](https://github.com/Metax-MACA/MedicalImage/tree/main/generative/nv-generate-ct-rflow)** | 基于 MAISI 的三维医学影像 latent diffusion 生成项目，支持合成 CT、解剖标签图、条件 CT 以及 CT/标签配对生成。 | 影像生成 |
+| **[nv-generate-mr](https://github.com/Metax-MACA/MedicalImage/tree/main/generative/nv-generate-mr)** | 基于 `rflow-mr` 的三维 MRI 生成模型，按体素间距和 MRI 模态条件生成合成影像。 | 影像生成 |
+| **[nv-generate-mr-brain](https://github.com/Metax-MACA/MedicalImage/tree/main/generative/nv-generate-mr-brain)** | 基于 `rflow-mr-brain` 的三维脑部 MRI 生成模型，从随机噪声生成脑部合成影像。 | 影像生成 |
+| **[Plastimatch](https://github.com/Metax-MACA/MedicalImage/tree/main/registration/plastimatch)** | 三维医学影像处理工具集，覆盖刚性/B-spline 配准、DRR 投影和 FDK 锥束 CT 重建。 | 影像配准、重建 |
+| **[uniGradICON](https://github.com/Metax-MACA/MedicalImage/tree/main/registration/unigradicon)** | 基于 GradICON 梯度逆一致性约束的三维医学影像基础模型，用于估计 CT、MRI 等影像的稠密可变形映射。 | 影像配准 |
+| **[BiomedCLIP](https://github.com/Metax-MACA/MedicalImage/tree/main/vlm/BiomedCLIP)** | 基于 PubMedBERT 和 ViT 的生物医学视觉语言模型，支持零样本分类与图文跨模态检索。 | 视觉语言、图文检索 |
+| **[Lingshu-7B](https://github.com/Metax-MACA/MedicalImage/tree/main/vlm/linshu)** | 医学多模态理解与推理模型，支持医学图像问答、描述和报告生成。 | 医学视觉语言 |
+| **[M3D-LaMed](https://github.com/Metax-MACA/MedicalImage/tree/main/vlm/m3d)** | 三维医学图像多模态大语言模型，支持图像描述、视觉问答、目标定位和器官分割。 | 三维视觉语言 |
+| **[MedCLIP](https://github.com/Metax-MACA/MedicalImage/tree/main/vlm/medclip)** | 医学图像与报告文本的对比学习模型，支持图文相似度和 CheXpert 提示分类。 | 视觉语言、影像理解 |
+| **[Merlin](https://github.com/Metax-MACA/MedicalImage/tree/main/vlm/merlin)** | 面向三维 CT 表征与医学推理的模型，支持图文/图像嵌入、表型预测、疾病风险预测和放射学报告生成。 | 三维视觉语言 |
+| **[NV-Reason-CXR](https://github.com/Metax-MACA/MedicalImage/tree/main/vlm/nv-reason-cxr)** | 面向正位胸部 X 光的视觉语言推理模型，支持异常分析、鉴别考虑、随访相关性和结构化报告任务。 | 胸片理解、视觉语言 |
+| **[RadFM](https://github.com/Metax-MACA/MedicalImage/tree/main/vlm/radfm)** | 面向放射学的视觉语言基础模型，支持 2D/3D、多图像输入、视觉问答和报告生成。 | 放射学视觉语言 |
+
 
 ---
 
