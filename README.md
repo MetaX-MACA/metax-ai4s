@@ -105,7 +105,6 @@
 | **[SAM-Med3D](https://github.com/Metax-MACA/MedicalImage/tree/main/segmentation/SAM-Med3D)**|面向三维医学图像的通用分割模型。| 影像分割 |
 | **[TotalSegmentatorV2](https://github.com/Metax-MACA/MedicalImage/tree/main/segmentation/TotalSegmentatorV2)**|基于**nnUNet**模型的CT图像分割工具。| 影像分割 |
 | **[vista3d](https://github.com/Metax-MACA/MedicalImage/tree/main/segmentation/vista3d)**|三维医学影像分割基础模型。| 影像分割 |
-| MedSegDiff | 扩散模型分割基线，适配生成式分割与鲁棒性实验。 | 影像分割 |
 | **[prov-gigapath](https://github.com/Metax-MACA/MedicalImage/tree/main/pathology/prov-gigapath)** | 全切片病理基础模型 | 病理学 |
 | **[Hibou](https://github.com/Metax-MACA/MedicalImage/tree/main/pathology/hibou)** | 面向数字病理图像的基础视觉 Transformer，可提取 CLS embedding、patch token 和中间层表示。 | 病理学 |
 | **[nv-generate-ct-rflow](https://github.com/Metax-MACA/MedicalImage/tree/main/generative/nv-generate-ct-rflow)** | 基于 MAISI 的三维医学影像 latent diffusion 生成项目，支持合成 CT、解剖标签图、条件 CT 以及 CT/标签配对生成。 | 影像生成 |
@@ -113,6 +112,7 @@
 | **[nv-generate-mr-brain](https://github.com/Metax-MACA/MedicalImage/tree/main/generative/nv-generate-mr-brain)** | 基于 `rflow-mr-brain` 的三维脑部 MRI 生成模型，从随机噪声生成脑部合成影像。 | 影像生成 |
 | **[Plastimatch](https://github.com/Metax-MACA/MedicalImage/tree/main/registration/plastimatch)** | 三维医学影像处理工具集，覆盖刚性/B-spline 配准、DRR 投影和 FDK 锥束 CT 重建。 | 影像配准、重建 |
 | **[uniGradICON](https://github.com/Metax-MACA/MedicalImage/tree/main/registration/unigradicon)** | 基于 GradICON 梯度逆一致性约束的三维医学影像基础模型，用于估计 CT、MRI 等影像的稠密可变形映射。 | 影像配准 |
+| **[VoxelMorph](https://github.com/Metax-MACA/MedicalImage/tree/main/registration/voxelmorph)** | 面向学习型图像对齐、配准和形变建模的通用开源库，支持 PyTorch 与 TensorFlow 后端。 | 影像配准、形变建模 |
 | **[BiomedCLIP](https://github.com/Metax-MACA/MedicalImage/tree/main/vlm/BiomedCLIP)** | 基于 PubMedBERT 和 ViT 的生物医学视觉语言模型，支持零样本分类与图文跨模态检索。 | 视觉语言、图文检索 |
 | **[Lingshu-7B](https://github.com/Metax-MACA/MedicalImage/tree/main/vlm/linshu)** | 医学多模态理解与推理模型，支持医学图像问答、描述和报告生成。 | 医学视觉语言 |
 | **[M3D-LaMed](https://github.com/Metax-MACA/MedicalImage/tree/main/vlm/m3d)** | 三维医学图像多模态大语言模型，支持图像描述、视觉问答、目标定位和器官分割。 | 三维视觉语言 |
