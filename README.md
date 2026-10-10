@@ -114,7 +114,7 @@
 | **[uniGradICON](https://github.com/Metax-MACA/MedicalImage/tree/main/registration/unigradicon)** | 基于 GradICON 梯度逆一致性约束的三维医学影像基础模型，用于估计 CT、MRI 等影像的稠密可变形映射。 | 影像配准 |
 | **[VoxelMorph](https://github.com/Metax-MACA/MedicalImage/tree/main/registration/voxelmorph)** | 面向学习型图像对齐、配准和形变建模的通用开源库，支持 PyTorch 与 TensorFlow 后端。 | 影像配准、形变建模 |
 | **[BiomedCLIP](https://github.com/Metax-MACA/MedicalImage/tree/main/vlm/BiomedCLIP)** | 基于 PubMedBERT 和 ViT 的生物医学视觉语言模型，支持零样本分类与图文跨模态检索。 | 视觉语言、图文检索 |
-| **[Lingshu-7B](https://github.com/Metax-MACA/MedicalImage/tree/main/vlm/linshu)** | 医学多模态理解与推理模型，支持医学图像问答、描述和报告生成。 | 医学视觉语言 |
+| **[Lingshu-7B](https://github.com/Metax-MACA/MedicalImage/tree/main/vlm/lingshu)** | 医学多模态理解与推理模型，支持医学图像问答、描述和报告生成。 | 医学视觉语言 |
 | **[M3D-LaMed](https://github.com/Metax-MACA/MedicalImage/tree/main/vlm/m3d)** | 三维医学图像多模态大语言模型，支持图像描述、视觉问答、目标定位和器官分割。 | 三维视觉语言 |
 | **[MedCLIP](https://github.com/Metax-MACA/MedicalImage/tree/main/vlm/medclip)** | 医学图像与报告文本的对比学习模型，支持图文相似度和 CheXpert 提示分类。 | 视觉语言、影像理解 |
 | **[Merlin](https://github.com/Metax-MACA/MedicalImage/tree/main/vlm/merlin)** | 面向三维 CT 表征与医学推理的模型，支持图文/图像嵌入、表型预测、疾病风险预测和放射学报告生成。 | 三维视觉语言 |
